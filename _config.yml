@@ -27,5 +27,5 @@ jekyll-press:
   css_options: {}     # css minifier options
   html_options: {}    # html minifier options
 
-paginate: 2
+paginate: 3
 paginate_path: ":num"

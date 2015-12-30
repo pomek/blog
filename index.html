@@ -6,7 +6,7 @@ layout: default
 <div class="news-list">
 
     {% for post in paginator.posts %}
-    <article class="news">
+    <article class="news js-news">
         <h3 class="news--title">
             <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h3>
@@ -32,49 +32,37 @@ layout: default
 
             <ul class="news__socials__links">
                 <li class="news__socials__links__link">
-                    <a href='http://www.facebook.com/share.php?v=4&src=bm&u=http://chosen-nbt.blogspot.com/2014/04/sample-post-with-links-paragraphs-and.html&t=Sample post with, links, paragraphs and comments'
-                       onclick='window.open(this.href,"sharer","toolbar=0,status=0,width=626,height=436"); return false;'
-                       rel='nofollow' target='_blank' title='Share this on Facebook'>
-                        <i class='fa fa-facebook-square'></i>&nbsp;Facebook</a>
-                </li>
-                <li class="news__socials__links__link">
-                    <a href='http://twitter.com/home?status=Sample post with, links, paragraphs and comments -- http://chosen-nbt.blogspot.com/2014/04/sample-post-with-links-paragraphs-and.html'
-                       rel='nofollow' target='_blank' title='Tweet This!'>
-                        <i class='fa fa-twitter-square'></i>&nbsp;Twitter
+                    <a class="js-facebook" rel="nofollow" target="_blank" title="Podziel się wpisem na Facebooku"
+                       href="http://www.facebook.com/share.php?v=4&amp;src=bm&amp;u={{ post.url | prepend: site.url | prepend: site.baseurl }}&amp;t={{ post.title }}">
+                        <i class="fa fa-facebook-square"></i>&nbsp;Facebook
                     </a>
                 </li>
                 <li class="news__socials__links__link">
-                    <a href='https://plus.google.com/share?url=http://chosen-nbt.blogspot.com/2014/04/sample-post-with-links-paragraphs-and.html'
-                       onclick='javascript:window.open(this.href,   "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");return false;'
-                       rel='nofollow' target='_blank' title='Share this on Google+'>
+                    <a class="js-twitter" rel="nofollow" target="_blank" title="Podziel się wpisem na Twitterze!"
+                       href="http://twitter.com/home?status={{ post.title }} -- {{ post.url | prepend: site.url | prepend: site.baseurl }}">
+                        <i class="fa fa-twitter-square"></i>&nbsp;Twitter
+                    </a>
+                </li>
+                <li class="news__socials__links__link">
+                    <a class="js-google" rel="nofollow" target="_blank" title="Podziel się wpisem na Google+"
+                       href="https://plus.google.com/share?url={{ post.url | prepend: site.url | prepend: site.baseurl }}">
                         <i class='fa fa-google-plus-square'></i>&nbsp;Google+</a>
-                </li>
-                <li class="news__socials__links__link">
-                    <a href='http://www.stumbleupon.com/submit?url=http://chosen-nbt.blogspot.com/2014/04/sample-post-with-links-paragraphs-and.html&title=Sample post with, links, paragraphs and comments'
-                       rel='nofollow' target='_blank' title='Stumble upon something good? Share it on StumbleUpon'>
-                        <i class='fa fa-stumbleupon-circle'></i>&nbsp;Stumble</a>
-                </li>
-                <li class="news__socials__links__link">
-                    <a href='http://digg.com/submit?phase=2&url=http://chosen-nbt.blogspot.com/2014/04/sample-post-with-links-paragraphs-and.html&title=Sample post with, links, paragraphs and comments'
-                       rel='nofollow' target='_blank' title='Digg this!'>
-                    <i class='fa fa-digg'></i>&nbsp;Digg</a>
                 </li>
             </ul>
         </section>
     </article>
     {% endfor %}
-
-    {% if paginator.total_pages > 1 %}
-        <div class="pagination">
-            {% if paginator.previous_page %}
-                <a href="{{ paginator.previous_page_path }}" class="pagination--previous">Nowsze posty</a>
-            {% endif %}
-
-            <a href="{{ site.baseurl }}/" class="pagination--home">Strona główna</a>
-
-            {% if paginator.next_page %}
-                <a href="{{ paginator.next_page_path }}" class="pagination--next">Starsze posty</a>
-            {% endif %}
-        </div>
-    {% endif %}
 </div>
+
+{% if paginator.total_pages > 1 %}
+    <div class="pagination">
+        {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="pagination--previous">Nowsze posty</a>
+            <a href="{{ site.baseurl }}/" class="pagination--home">Strona główna</a>
+        {% endif %}
+
+        {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="pagination--next">Starsze posty</a>
+        {% endif %}
+</div>
+{% endif %}
