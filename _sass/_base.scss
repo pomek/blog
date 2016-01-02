@@ -1,50 +1,5 @@
 @import "../bower_components/normalize-scss/normalize";
 
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-
-  &:active,
-  &:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-  }
-}
-
-@mixin clearfix() {
-  &:before,
-  &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-$font-base: "Raleway";
-$font-header: "Playfair Display";
-$font-fallback: "sans-serif";
-$font-fallback-header: "serif";
-
-$font-base-color: #545454;
-$font-header-color: #2b2b2b;
-
-$font-link-color: $font-header-color;
-$font-link-color-hover: #666;
-
-$header-emphaze-margin: 65px;
-
 * {
   box-sizing: border-box;
 }
@@ -52,7 +7,7 @@ $header-emphaze-margin: 65px;
 body {
   color: $font-base-color;
   font-family: $font-base, $font-fallback;
-  font-size: 100%;
+  font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased;
   word-wrap: break-word;
@@ -105,35 +60,31 @@ h6 {
       display: block;
     }
   }
-}
 
-.socials {
-  @include clearfix;
-  float: right;
-  position: relative;
-  top: -(3 * $header-emphaze-margin);
+  &__socials {
+    @include clearfix;
+    float: right;
+    position: relative;
+    top: -(3 * $header-emphaze-margin);
 
-  &__links {
-    list-style: none;
+    &__links {
+      list-style: none;
 
-    &__link {
-      display: inline-block;
-      margin-right: 1.125em;
+      &__link {
+        display: inline-block;
+        margin-right: 1.125em;
 
-      &:last-of-type {
-        margin-right: 0;
-      }
-
-      a {
-        text-decoration: none;
+        &:last-of-type {
+          margin-right: 0;
+        }
       }
     }
   }
 }
 
-.main,
-.pagination {
-  padding: 0 9.08406%;
+.main {
+  @include blockCenter;
+  width: 1280px;
 }
 
 .news {
@@ -170,9 +121,10 @@ h6 {
   }
 
   &--title {
+    @include blockCenter;
+    width: 1080px;
     font-size: 3.188em;
     line-height: 1.314;
-    padding: 0 9.08406%;
     text-align: center;
   }
 
@@ -180,13 +132,15 @@ h6 {
     font-size: 0.75em;
     line-height: 1.5;
     margin-top: 15px;
+    margin-bottom: 48px;
     text-align: center;
     text-transform: uppercase;
   }
 
   &--content {
     @include clearfix;
-    padding: 0 18.16812%;
+    @include blockCenter;
+    width: 900px;
   }
 
   &--more {
@@ -199,8 +153,6 @@ h6 {
     float: left;
     margin: 0 10px 5px 0;
     padding: 4px;
-    border: 0 solid #eee;
-    background: none;
     width: 200px;
     height: auto;
     max-width: 100%;
@@ -212,10 +164,12 @@ h6 {
   margin-top: 3.5em;
   text-align: center;
   background: #f5f5f5;
-  border-top: solid 1px #EDEDED;
+  border-top: solid 1px #ededed;
 
   &__links {
     list-style: none;
+    margin: 0;
+    padding: 0;
 
     &__link {
       display: inline-block;
@@ -237,17 +191,41 @@ h6 {
 
 .pagination {
   @include clearfix;
+  @include blockCenter;
   text-align: center;
+  width: 900px;
 
   &--previous {
     float: left;
   }
 
-  &--home {
-
-  }
-
   &--next {
     float: right;
   }
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  &:active,
+  &:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
 }
