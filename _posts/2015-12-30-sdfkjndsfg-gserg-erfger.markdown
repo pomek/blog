@@ -3,8 +3,8 @@ layout: post
 title:  "Welcome to Jekyll!"
 date:   2015-12-28 12:31:03 +0100
 categories: jekyll update
-image: http://1.bp.blogspot.com/-v8zWdibSlLg/U5J9pHU13zI/AAAAAAAAKEw/WkX-S4BehRw/s1600/postimg-1.jpg
-description: Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w...
+image: 
+description: Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym.
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 

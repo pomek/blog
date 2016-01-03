@@ -1,38 +1,17 @@
-<footer class="site-footer">
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
-      </div>
-    </div>
-
-  </div>
-
+<footer class="footer">
+    <ul class="footer__links">
+        <li class="footer__links__link">
+            Copyright &copy; {{ 'now' | date: "%Y" }}
+        </li>
+        <li class="footer__links__link">
+            Design by <a href="https://www.competethemes.com/">Compete Themes</a>
+        </li>
+        <li class="footer__links__link">
+            Powered by <a href="http://jekyllrb.com/">Jekyll</a>
+        </li>
+        <li class="footer__links__link">
+            <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a>
+        </li>
+    </ul>
 </footer>
+<script src="{{ "/js/script.js" | prepend: site.baseurl }}"></script>
