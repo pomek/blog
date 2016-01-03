@@ -18,7 +18,9 @@ socials:
 markdown: kramdown
 
 exclude:
+  - "node_modules"
   - "bower_components"
+  - "package.json"
   - "bower.json"
   - "Gemfile"
   - "Gemfile.lock"
