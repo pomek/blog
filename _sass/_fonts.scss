@@ -1,0 +1,31 @@
+@font-face {
+  font-family: $font-base;
+  src: url($font-path + '/Raleway-Regular.eot');
+  src: local($font-base), url($font-path + '/Raleway-Regular.woff') format('woff'), url($font-path + '/Raleway-Regular.ttf') format('truetype'), url($font-path + '/Raleway-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-base;
+  src: url($font-path + '/Raleway-Bold.eot');
+  src: local($font-base), url($font-path + '/Raleway-Bold.woff') format('woff'), url($font-path + '/Raleway-Bold.ttf') format('truetype'), url($font-path + '/Raleway-Bold.svg') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-base;
+  src: url($font-path + '/Raleway-Bold-Italic.eot');
+  src: local($font-base), url($font-path + '/Raleway-Bold-Italic.woff') format('woff'), url($font-path + '/Raleway-Bold-Italic.ttf') format('truetype'), url($font-path + '/Raleway-Bold-Italic.svg') format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $font-base;
+  src: url($font-path + '/Raleway-Regular-Italic.eot');
+  src: local($font-base), url($font-path + '/Raleway-Regular-Italic.woff') format('woff'), url($font-path + '/Raleway-Regular-Italic.ttf') format('truetype'), url($font-path + '/Raleway-Regular-Italic.svg') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
