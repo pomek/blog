@@ -1,0 +1,165 @@
+.header {
+  @include clearfix;
+  margin-bottom: 6em;
+  padding: 1.5em 5% 0;
+  text-align: center;
+
+  &__logo {
+    margin-top: 4.0625em;
+
+    &--emphaze {
+      display: block;
+      font-size: 4.25em;
+      line-height: 1.25em;
+    }
+
+    &--motto {
+      display: block;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+
+  &__socials {
+    float: right;
+    position: relative;
+    top: -11.5em;
+
+    &__links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      &__link {
+        display: inline-block;
+        font-size: 1.15em;
+        margin-right: 1.125em;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.main {
+  @include blockCenter;
+  width: 71.2%;
+}
+
+.news {
+  margin-bottom: 5.625em;
+
+  &__socials {
+    padding: 1.25em 0 0.3125em;
+    text-align: center;
+    font-size: 0.75em;
+    line-height: 1.5em;
+    text-transform: uppercase;
+
+    &__links {
+      display: inline;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      &__link {
+        display: inline-block;
+        padding: 0 0.625em;
+      }
+    }
+
+    &--title {
+      font-family: $font-base, $font-fallback;
+      display: inline-block;
+
+      &:after {
+        content: ":";
+        padding-right: 0.625em;
+      }
+    }
+  }
+
+  &--title {
+    font-size: 3.15em;
+    line-height: 1.315;
+    text-align: center;
+  }
+
+  &--meta {
+    font-size: 0.75em;
+    line-height: 1.5;
+    margin-top: 1em;
+    margin-bottom: 2.5em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &--content {
+    @include clearfix;
+    @include blockCenter;
+    width: 87.5%;
+  }
+
+  &--more {
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+  }
+
+  &--image {
+    float: left;
+    margin: 0 0.625em 0.3125em 0;
+    padding: 0.25em;
+    width: 12.5em;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+.footer {
+  padding: 1.5em 4.167%;
+  margin-top: 3.5em;
+  text-align: center;
+  background: #f5f5f5;
+  border-top: solid 1px #ededed;
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__link {
+      display: inline-block;
+
+      &:after {
+        content: "|";
+        display: inline;
+        padding: 0 0.3em;
+      }
+
+      &:last-of-type {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  @include clearfix;
+  @include blockCenter;
+  text-align: center;
+  width: 87.5%;
+
+  &--previous {
+    float: left;
+  }
+
+  &--next {
+    float: right;
+  }
+}
