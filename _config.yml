@@ -22,7 +22,8 @@ exclude:
   - "bower.json"
   - "Gemfile"
   - "Gemfile.lock"
-  - "Makefile"
+  - "REVISION"
+  - "Capfile"
 
 jekyll-press:
   exclude: '*.xml'

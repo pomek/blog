@@ -1,1 +1,1 @@
-server 'pomek.pl', user: 'pomek', roles: %w{web}
+server 'pomek.pl', roles: [:app]

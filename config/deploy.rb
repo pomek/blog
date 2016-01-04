@@ -36,10 +36,14 @@ set :linked_dirs, fetch(:linked_dirs, []).push('.sass-cache', 'bower_components'
 
 namespace :deploy do
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      execute :make, 'build'
+    after :updated, :build do
+        on roles(:app) do
+            within release_path  do
+              execute :npm, 'install'
+              execute :node, 'node_modules/bower/bin/bower install'
+              execute :jekyll, 'build'
+            end
+        end
     end
-  end
 
 end
