@@ -24,6 +24,7 @@ exclude:
   - "bower.json"
   - "Gemfile"
   - "Gemfile.lock"
+  - "Makefile"
 
 gems: [jekyll-paginate]
 
