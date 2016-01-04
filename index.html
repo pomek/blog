@@ -13,14 +13,16 @@ layout: default
         <p class="news--meta">
             Kategoria: {{ post.categories }},
             Data publikacji:
-            <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%d.%m.%Y" }}</time>
+            <time datetime="{{ post.date | html5date }}">
+                {{ post.date | polishDate }}
+            </time>
         </p>
         <div class="news--content">
             {% if post.image %}
                 <img src="{{ post.image }}" class="news--image">
             {% endif %}
             <div>
-                {{ post.description }}
+                {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
             </div>
             <p class="news--more">
                 <a href="{{ post.url | prepend: site.baseurl }}">Pełny wpis</a>

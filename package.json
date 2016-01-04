@@ -1,0 +1,16 @@
+{
+  "name": "blog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pomek/blog.git"
+  },
+  "author": "Kamil Piechaczek <pomek@pomek.pl>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pomek/blog/issues"
+  },
+  "homepage": "https://github.com/pomek/blog#readme",
+  "devDependencies": {
+    "bower": "^1.7.2"
+  }
+}
