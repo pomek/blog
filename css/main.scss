@@ -3,13 +3,11 @@
 ---
 @charset "utf-8";
 
-@import
-        "variables",
-        "mixins",
-        "fonts",
-        "icons",
-        "base",
-        "layout",
-        "rwd",
-        "syntax-highlighting"
-;
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import "icons";
+@import "base";
+@import "layout";
+@import "rwd";
+@import "syntax-highlighting";

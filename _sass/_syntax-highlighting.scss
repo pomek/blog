@@ -1,11 +1,29 @@
 /**
  * @theme: manni
  */
+
+.highlighter-rouge {
+  background-color: #ececec;
+  padding: 0.2em 0.45em;
+}
+
 .highlight {
   border: solid 1px rgba(58, 58, 58, 0.25);
-  max-height: 400px;
   overflow: scroll;
+  margin: 2.15em auto;
+  max-height: 400px;
   padding: 2px;
+  width: 85%;
+
+  table {
+    margin: 0;
+
+    td,
+    th {
+      padding: 0;
+      border: 0;
+    }
+  }
 
   pre {
     margin-top: 0;

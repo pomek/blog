@@ -51,6 +51,41 @@
 
 .news {
   margin-bottom: 5.625em;
+  line-height: 1.75em;
+
+  p + p {
+    margin-top: 2.15em;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 1em 0;
+    line-height: 1.25em;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2.7em;
+  }
+
+  h3 {
+    font-size: 2.35em;
+  }
+
+  h4 {
+    font-size: 2em;
+  }
+
+  h5 {
+    font-size: 1.65em;
+  }
+
+  h6 {
+    font-size: 1.3em;
+  }
 
   &__socials {
     padding: 1.25em 0 0.3125em;
@@ -71,8 +106,11 @@
       }
     }
 
-    &--title {
+    &--title,
+    h3.news__socials--title,
+    h4.news__socials--title {
       font-family: $font-base, $font-fallback;
+      font-size: 1em;
       display: inline-block;
 
       &:after {
@@ -82,7 +120,8 @@
     }
   }
 
-  &--title {
+  &--title,
+  h2.news--title {
     font-size: 3.15em;
     line-height: 1.315;
     text-align: center;
