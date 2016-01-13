@@ -1,0 +1,23 @@
+<ul class="news__socials__links">
+    <li class="news__socials__links__link">
+        <a class="js-facebook" rel="nofollow" target="_blank" title="Podziel się wpisem na Facebooku"
+           href="http://www.facebook.com/share.php?v=4&amp;src=bm&amp;u={{ news.url | prepend: site.url | prepend: site.baseurl }}&amp;t={{ news.title }}">
+            <i class="fa fa-facebook-square"></i>
+            <span class="news__socials__links__link--label">Facebook</span>
+        </a>
+    </li>
+    <li class="news__socials__links__link">
+        <a class="js-twitter" rel="nofollow" target="_blank" title="Podziel się wpisem na Twitterze!"
+           href="http://twitter.com/home?status={{ news.title }} -- {{ news.url | prepend: site.url | prepend: site.baseurl }}&amp;via={{ site.socials.twitter }}">
+            <i class="fa fa-twitter-square"></i>
+            <span class="news__socials__links__link--label">Twitter</span>
+        </a>
+    </li>
+    <li class="news__socials__links__link">
+        <a class="js-google" rel="nofollow" target="_blank" title="Podziel się wpisem na Google+"
+           href="https://plus.google.com/share?url={{ news.url | prepend: site.url | prepend: site.baseurl }}">
+            <i class='fa fa-google-plus-square'></i>
+            <span class="news__socials__links__link--label">Google+</span>
+        </a>
+    </li>
+</ul>
