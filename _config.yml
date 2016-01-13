@@ -10,8 +10,10 @@ socials:
   github: pomek
   twitch: pomekPL
 
-gems: [jekyll-paginate]
 markdown: kramdown
+permalink: /:year/:month/:day/:title.html
+
+gems: [jekyll-paginate]
 paginate: 6
 paginate_path: ":num"
 
