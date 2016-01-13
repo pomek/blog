@@ -49,7 +49,7 @@
   width: 71.2%;
 }
 
-#disqus_thread
+#disqus_thread,
 .news {
   margin-bottom: 5.625em;
 }
@@ -125,7 +125,8 @@
   }
 
   &--title,
-  h2.news--title {
+  h2.news--title,
+  h3.news--title {
     font-size: 3.15em;
     line-height: 1.315;
     text-align: center;
