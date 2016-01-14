@@ -11,7 +11,7 @@ layout: default
             <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h3>
         <p class="news--meta">
-            Kategoria: {{ post.categories }},
+            Kategoria: {{ post.categories | join: ' ' }},
             Data publikacji:
             <time datetime="{{ post.date | html5date }}">
                 {{ post.date | polishDate }}

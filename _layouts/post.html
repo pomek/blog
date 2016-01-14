@@ -7,7 +7,7 @@ layout: default
         <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
     </h2>
     <p class="news--meta">
-        Kategoria: {{ page.categories }},
+        Kategoria: {{ page.categories | join: ' ' }},
         Data publikacji:
         <time datetime="{{ page.date | html5date }}">
             {{ page.date | polishDate }}
@@ -29,6 +29,6 @@ layout: default
     </section>
 </article>
 
-{% if page.comments %}
+{% if jekyll.environment == "production" and page.comments %}
     {% include scripts/disqus.html %}
 {% endif %}
