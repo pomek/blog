@@ -4,7 +4,59 @@ title: >-
 layout: post
 categories: Dump Links
 comments: true
+tags: phpspec laracast css laravel pagespeed ddd
 identifier: dump-links-1-laravel-behat-phabricator-ddd
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+W DeSmart codziennie znajdujemy ciekawe rzeczy. W rzeczywistości każdy członek zespołu ([DeTeam'u](http://desmart.com/who))  
+znajduje i dzieli się ciekawostkami z innymi za pomocą naszej wewnętrznej listy e-mailowej, prywatnej grupy
+na Facebooku lub na kanale HipChat. Uważam, że to bardzo przydatne i spróbuję się podzielić tymi wszystkimi ciekawostkami na blogu.
+Tematy będą zróżnicowane, ale najczęściej będę pisał o PHP-ie, frameworkach, CSS-ie oraz wszystkich nowinkach technologicznych.
+
+Kiedy moja skrzynka z linkami jest pełna, czyszczę ją i staram się opisać każdy z tych linków - dlaczego to lubię,
+dlaczego ta technologia jest dobra lub zła etc. Mam nadzieję, że to również Cię zainteresuje i linki będą dla Ciebie pomocne.
+
+**[Phabricator](http://phabricator.org/)** to open source'e narzędzie, które integruje narzędzia do zarządzania projektem,
+inspekcji kodu, śledzenia bugów z naszym repozytorium SVN lub Git. Chciałbym to przetestować podczas tworzenia nasztępnego projektu.
+
+Tworzenie aplikacji zgodnie z metodologią BDD oferuje wiele zalet, to jest oczywiste. Ale co zrobić, jeśli wcześniej
+nie użyło tego w naszej aplikacji, a bardzo chce się spróbować? Naukę możesz rozpocząć z **[tutorialem o BDD](http://code.tutsplus.com/tutorials/a-bdd-workflow-with-behat-and-phpspec--cms-21601)**,
+a następnie za pomocą narzędzi [PHPSpec](http://www.phpspec.net/en/latest/) oraz [Behat](http://docs.behat.org/en/v2.5/)
+spróbuj wdrożyć przy najbliższym projekcie BDD.
+
+Podczas tworzenia trzeciego wydania projektu [Fooder](http://fooder.pl) postanowiliśmy zmierzyć się z [**Domain Driven Design**](https://laracasts.com/series/commands-and-domain-events).
+To była nasza pierwsza próba i jak się okazało, była to dobra decyzja. W rzeczywistości nasze zadanie było lekko utrudnione,
+ponieważ część naszej aplikacji była już napisana, ale nie poddaliśmy się i dokończyliśmy dzieło. Na początku mieliśmy 
+wiele problemów z poprawnym nazewnictwem klas i metod, ale nauczyliśmy się tego. Teraz tworzenie aplikacji zgodnie z DDD 
+jest dla nas bardziej naturalne i efektowne niż kiedykolwiek. Powinieneś sprobówać tego. 
+
+Ważne jest utrzymanie czystego i logicznego kodu, każdy to wie. Zwłaszcza jeśli chcesz utrzymać dobre relacje ze swoimi
+kolegami podczas modyfikowania i ulepszania ich kodu (i w drugą stronę również). Jeśli chciałbyś się dowiedzieć jakie
+zalety płyną z posiadania czystego kodu, [**spróbuj go ulepszyć**](https://laracasts.com/series/simple-rules-for-simpler-code).
+
+Każdy kto używał Adobe Photoshop wie jakie ciekawe efekty można tworzyć za pomocą opcji mieszania tła. 
+Teraz identyczny efekt może być prosto utworzony za pomocą **[CSS-a i właściwości *background-blend-mode*](http://www.webdesignerdepot.com/2014/07/15-css-blend-modes-that-will-supercharge-your-images).** 
+Całkiem niezłe. Może powinienem porozmawiać z naszymi kolegami z [UXPin-u](http://uxpin.com/) w celu wdrożenia tego w ich edytorze? :)
+
+Spotkałęś się z problemem implementacji jednorazowych notyfikacji w swojej aplikacji? Prawdopodobnie znam rozwiązanie,
+które umożliwi Ci [**zarządzanie notyfikacjami**](https://github.com/laracasts/flash).
+
+Spotkałeś się kiedyś z problemem wyświetlania takiego samego widoku w kilku różnych miejsach w swojej aplikacji
+i zastanawiałeś się jak zrobić to najlepiej? [**Virtuoso**](https://github.com/coderabbi/virtuoso) może być rozwiązaniem. Ta prosta paczka pozwala utworzyć obiekt
+z Twoim widokiem, który może być wpięty do innych widków. Tą metodą nie duplikujemy kodu oraz, jeśli chcemy coś zmienić,
+robimy to tylko w jednym miejscu. Proste.
+
+Często mam problem z walidacją danych w modelu, które muszą być zapisane do bazy danych. Znalazłem rozwiązanie, które
+służy do [**walidacji danych w modelu**](https://github.com/dwightwatson/validating). 
+Możesz użyć tego za każdym razem kiedy chcesz coś zapisać do bazy danych. Dzięki temu Twoja baza będzie spójna.
+
+Wiemy, że aplikacje webowe powinny wyglądać dobrze, ale wygląd to nie jedyna ważna rzecz. Powinny one również być
+*SEO friendly*. Jako developer powinieneś dbać o to. Minifikacja plików \*.js oraz \*.css aktualnie jest czymś oczywistym.
+[**Dostępnych narzędzia**](http://nibbler.silktide.com/) pozwolą sprawdzić inne ważne punkty w aplikacji.
+[**Woorank**](https://www.woorank.com/) sprawdzi Twoją aplikację i zasugeruje co powinno zostać zmienione. 
+[**Google PageSpeed**](https://developers.google.com/speed/pagespeed/insights/) zwróci uwagę na prędkość Twojej aplikacji
+i zasugeruje co możesz usprawnić.
+
+To wszystko na dziś. Zostaw proszę komentarz jeśli coś nie jest czyste lub jeśli chciałbyś podzielić się czymś ze mną.
+
+Chcesz więcej? Podziel się „Dump Links” z innymi za pomocą linków poniżej. Do usłyszenia! 
