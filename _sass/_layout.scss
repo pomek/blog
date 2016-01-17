@@ -145,6 +145,10 @@
     @include clearfix;
     @include blockCenter;
     width: 87.5%;
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   &--more {
@@ -198,6 +202,10 @@
   @include blockCenter;
   text-align: center;
   width: 87.5%;
+
+  a {
+    text-decoration: underline;
+  }
 
   &--previous {
     float: left;
