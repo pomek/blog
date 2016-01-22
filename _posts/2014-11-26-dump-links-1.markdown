@@ -1,11 +1,11 @@
 ---
 title: >-
-    Dump Links #1 - Laravel, Behat, Phabricator, DDD
+    Dump Links #1
 layout: post
 categories: Dump Links
 comments: true
 tags: phpspec laracast css laravel pagespeed ddd
-identifier: dump-links-1-laravel-behat-phabricator-ddd
+identifier: dump-links-1
 ---
 
 W DeSmart codziennie znajdujemy ciekawe rzeczy. W rzeczywistości każdy członek zespołu ([DeTeam'u](http://desmart.com/who))  

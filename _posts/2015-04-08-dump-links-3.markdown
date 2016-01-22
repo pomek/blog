@@ -1,10 +1,10 @@
 ---
 title: >-
-    Dump Links #3 - Czysty kod
+    Dump Links #3
 layout: post
 categories: Dump Links
 comments: true
-identifier: dump-links-3-czysty-kod
+identifier: dump-links-3
 ---
 
 Przed napisaniem tego posta długo się zastanawiałem o czym chcę napisać. Byłem niezdecydowany, ponieważ wiele
@@ -59,5 +59,5 @@ oraz co to właściwie jest [**SOLID**](https://scotch.io/bar-talk/s-o-l-i-d-the
 Na dziś to wszystko. Zapraszam do dyskusji w komentarzach, jak również dzielenia się postem z innymi.
 
 PS: Swoją drogą, czy widziałeś poprzednie wydania „Dump Links”? Znajdziesz w nich coś interesującego na temat 
-[Laravela, Behata]({% post_url 2014-11-26-dump-links-1-laravel-behat-phabricator-ddd %}) 
-lub narzędzi [JS-owych]({% post_url 2015-01-12-dump-links-2-biblioteki-javascript-owe %}).
+[Laravela, Behata]({% post_url 2014-11-26-dump-links-1 %}) 
+lub narzędzi [JS-owych]({% post_url 2015-01-12-dump-links-2 %}).

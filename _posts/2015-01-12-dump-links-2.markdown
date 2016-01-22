@@ -1,14 +1,14 @@
 ---
 title: >-
-    Dump Links #2 - Biblioteki JavaScript-owe
+    Dump Links #2
 layout: post
 categories: Dump Links
 comments: true
 tags: javascript php oop laravel markdown regexp
-identifier: dump-links-2-biblioteki-javascript-owe
+identifier: dump-links-2
 ---
 
-W [poprzedniej częsci „Dump Links”]({% post_url 2014-11-26-dump-links-1-laravel-behat-phabricator-ddd %}) skupiłem się
+W [poprzedniej częsci „Dump Links”]({% post_url 2014-11-26-dump-links-1 %}) skupiłem się
 na artykułach i linkach dotyczących języków po stronie serwera. Na dziś przygotowałem coś na temat narzędzi napisanych
 w języku JavaScript. Zapraszam!
 
@@ -37,7 +37,7 @@ To umożliwia nam bezpieczne testowanie krytycznych funkcjonalności, takich jak
 Spotkałeś się kiedyś z problemem doboru kolorystyki do swojej aplikacji? Jeśli tak, definitywnie powinieneś sprawdzić
 [**Coolors**](https://coolors.co/). To proste narzędzie służy do generowania palety z losowymi kolorami.
 
-W [poprzednim poście]({% post_url 2014-11-26-dump-links-1-laravel-behat-phabricator-ddd %}) wspomniałem o Domain Driven Design w teorii. Kilka dni później znalazłem 
+W [poprzednim poście]({% post_url 2014-11-26-dump-links-1 %}) wspomniałem o Domain Driven Design w teorii. Kilka dni później znalazłem 
 [**interesujący artykuł**](http://cocoders.com/cocoders-design-flow-specification-and-modelling-by-example/)
 na temat praktycznego zastosowania DDD. To przykład aplikacji napisanej w Symfony, która również zawiera Behata.
 [Źródło aplikacji](https://github.com/cocoders/playground/tree/modelling-by-example) jest dostępne na Githubie.
