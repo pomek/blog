@@ -13,7 +13,7 @@ layout: default
         <p class="news--meta">
             Kategoria: {{ post.categories | join: ' ' }},
             Data publikacji:
-            <time datetime="{{ post.date | html5date }}">
+            <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
                 {{ post.date | polishDate }}
             </time>
         </p>
