@@ -26,7 +26,7 @@ Przejdźmy do prezentacji - często bazuje ona na arkuszach stylów (CSS). Nie w
 czegoś nowego, lepszego niż użyłem w poprzednim projekcie. Na początku, kiedy mamy mało kodu, nie mamy żadnego problemu z nawigacją 
 pomiędzy plikami. Problem zwiększa się wprost proporcjonalnie do ilości napisanego kodu. Style CSS mogą również 
 [**mogą być czytelne, uporządkowane i napisane obiektowo**](http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/).
-Najbardziej w tym artykule lubię sekcję [*„The Namespaces”*]. W prosty sposób zostały przedstawione najważniejsze 
+Najbardziej w tym artykule lubię sekcję *„The Namespaces”*. W prosty sposób zostały przedstawione najważniejsze 
 sekcje naszej aplikacji nad którymi pracują inne osoby z naszego zespołu.
 
 CSS w połączeniu z SVG i JS-em oferuje potężne możliwości. Możemy tworzyć ciekawe [**animacje obramowania**](http://tympanus.net/Tutorials/BorderAnimationSVG/),
