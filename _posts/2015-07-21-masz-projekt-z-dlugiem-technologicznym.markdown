@@ -253,9 +253,9 @@ autorstwa [Mirza Pasic](https://twitter.com/b1rkh0ff).
 #### Aktualizacja
 
 Wiem, że w powyższym kodzie popełniłem błąd. Repozytorium powinno być traktowane jako kolekcja (nie powinno zawierać stanu).
-Tak więc, `SearchRepository` nie powinno zawierać właściwości `$$criteria`. Metody `applyCriteria` oraz `pushCriterion`
-powinny zostać usunięte. W rezultacie, metoda `getItems` wymaga tylko jednego parametru - kolekcji, która zawiera 
-utworzone kryteria - `CriteriaCollection`. 
+Tak więc, `SearchRepository` nie powinno zawierać właściwości `$criteria`. Metody `applyCriteria` oraz `pushCriterion`
+powinny zostać usunięte. W rezultacie, metoda `getItems` wymaga tylko jednego parametru - `CriteriaCollection` - kolekcji, 
+która zawiera utworzone kryteria. 
 
 W powyższym rozwiązaniu kryteria były budowane i dołączane do `SearchRepository`. Teraz kryteria są dołączane do kolekcji 
 (`CriteriaCollection`). Bazując na tej kolekcji, mogę pobrać konkretne wyniki.
