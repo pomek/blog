@@ -8,7 +8,7 @@
     </li>
     <li class="news__socials__links__link">
         <a class="js-twitter" rel="nofollow" target="_blank" title="Podziel się wpisem na Twitterze!"
-           href="http://twitter.com/home?status={{ news.title }} -- {{ news.url | prepend: site.url | prepend: site.baseurl }}&amp;via={{ site.socials.twitter }}">
+           href="http://twitter.com/home?status=@{{ site.socials.twitter }} {{ news.title | remove: '#' }} -- {{ news.url | prepend: site.url | prepend: site.baseurl }}&amp;via={{ site.socials.twitter }}">
             <i class="fa fa-twitter-square"></i>
             <span class="news__socials__links__link--label">Twitter</span>
         </a>

@@ -1,6 +1,6 @@
 ---
 title: >-
-    Masz projekt z długiem technologicznym?   
+    Masz projekt z długiem technologicznym?
 layout: post
 categories: Software Development
 comments: true
