@@ -8,10 +8,10 @@ tags: unit tests ci
 identifier: po-co-mi-te-testy-jednostkowe
 ---
 
-Deweloperzy, którzy jeszcze nie doświadczyli kontaktu z testami jednosktowymi, nie wiedzą jak wiele tracą i jak bardzo
+Deweloperzy, którzy jeszcze nie doświadczyli kontaktu z testami jednostkowymi, nie wiedzą jak wiele tracą i jak bardzo
 utrudniają sobie tworzenie aplikacji. 
 Testy jednostkowe to fundament [**testów automatycznych**](https://watirmelon.files.wordpress.com/2012/01/idealautomatedtestingpyramid.png),
-który aplikacja powinna posiadać. Zautomatyzowany proces testowania pozwala zautomatyzować proces 
+który aplikacja powinna posiadać. Automatyczny proces testowania pozwala zautomatyzować proces 
 aktualizowania produkcji, a to zmniejsza ryzyko wystąpienia błędu. Jednak zanim dojdziemy do automatycznych
 aktualizacji, najpierw musimy przejść przez pierwszy etap - **testy jednostkowe**.
 
@@ -29,7 +29,7 @@ wymuszają na programiście chwilę refleksji. Przed rozpoczęciem *kodzenia*, p
 czy jego pomysł ma sens, czy ten pomysł może być przetestowany, gdzie powinien być interfejs, jakie powinny być zależności, etc.
 Ogólnie chwila refleksji pozwala odpowiedzieć na pytanie - *„czy wybrany sposób realizuje faktyczne zapotrzebowanie na kod”*.
 
-Jeśli nie potrafimy napisać testu do kodu, który chcemy napisać, to prawdopodobnie mamy problem z architekturą naszej aplikacji.
+Jeśli nie potrafimy napisać testu do kodu, to prawdopodobnie mamy problem z architekturą naszej aplikacji.
 
 #### Czy mój kod działa?
 
@@ -51,7 +51,7 @@ Dzięki **dobrym** testom jesteśmy zabezpieczeni przed regresją. Ciężko jest
 - **jednoznaczność** - test jednoznacznie informuje o rezultacie (albo czerwony, albo zielony),
 - **powtarzalność** - testy powinny dawać ten sam rezultat za każdym razem kiedy są uruchamiane,
 - **asersja** - każdy test powinien mieć co najmniej jedną asercję,
-- **pojedyńcza odpowiedzialność** - jeden przypadek testowy powinien testować jedną pełną ścieżkę programu,
+- **pojedyncza odpowiedzialność** - jeden przypadek testowy powinien testować jedną pełną ścieżkę programu,
 - **niezależność** - wszystkie zależności powinny być zastąpione obiektami [*test doubles*](https://en.wikipedia.org/wiki/Test_double); w ten sposób implementacje zależności nie wpływają na wynik testu.
 
 W kontekście **TDD** istnieje zasada [**FIRST**](https://github.com/ghsukumar/SFDC_Best_Practices/wiki/F.I.R.S.T-Principles-of-Unit-Testing),
@@ -65,7 +65,7 @@ Testy jednostkowe mogą być traktowane jako **żyjąca dokumentacja** kodu, pon
 - są **zsynchronizowane** z kodem, bo inaczej by nie przechodziły,
 - wyjaśniają **zamiary** autora, które można tymi testami zweryfikować.
 
-Każda aktualizacja kodu wymusza zaktualizowanie testów do tego kodu, przez co automatycznie jest aktualizowana *dokumentacja*.
+Każda aktualizacja testów wymusza poprawienei kodu, a co za tym idziem *dokumentacja* również ulega zmianom.
  
 #### Złe praktyki  
 
@@ -84,6 +84,6 @@ niż jego brak. Podobnie jak w przypadku „dobrych testów”, możemy wyróżn
 
 Jeśli jeszcze nie doświadczyłeś przyjemności z pisania testów jednostkowych, mam nadzieję, że po przeczytaniu tego artykułu Twoje nastawienie się zmieni i testy zaczną być fundamentem w Twojej codziennej pracy.
  
-Na wstępie wspomniałem o testach automatycznych i piramidzie testów. Z całą pewnością mogę stwierdzić, że na artykule o testach jednostkowych się nie skończy.
+Na wstępie wspomniałem o testach automatycznych i piramidzie testów. Z całą pewnością mogę stwierdzić, że na jednym artykule o testach się nie skończy.
 
 Chciałbyś coś dodać, podzielić się swoim doświadczeniem? Komentarze są do tego odpowiednim miejscem.
