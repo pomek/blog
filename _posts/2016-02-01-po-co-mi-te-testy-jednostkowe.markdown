@@ -65,7 +65,7 @@ Testy jednostkowe mogą być traktowane jako **żyjąca dokumentacja** kodu, pon
 - są **zsynchronizowane** z kodem, bo inaczej by nie przechodziły,
 - wyjaśniają **zamiary** autora, które można tymi testami zweryfikować.
 
-Każda aktualizacja testów wymusza poprawienei kodu, a co za tym idziem *dokumentacja* również ulega zmianom.
+Każda aktualizacja testów wymusza poprawienie kodu, a co za tym idziem *dokumentacja* również ulega zmianom.
  
 #### Złe praktyki  
 
