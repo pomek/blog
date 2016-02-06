@@ -4,13 +4,6 @@
     "Kamil Piechaczek <pomek@pomek.pl>"
   ],
   "homepage": "https://github.com/pomek/blog",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
     "normalize-scss": "~3.0.3"
   }

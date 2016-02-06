@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'jekyll-press'
+gem 'jekyll'
 gem 'jekyll-paginate'
+gem 'redcarpet'
+gem 'rouge'

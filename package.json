@@ -10,7 +10,14 @@
     "url": "https://github.com/pomek/blog/issues"
   },
   "homepage": "https://github.com/pomek/blog#readme",
-  "devDependencies": {
-    "bower": "^1.7.2"
+  "dependencies": {
+    "bower": "^1.7.2",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-htmlmin": "^0.6.0",
+    "grunt-contrib-uglify": "^0.11.1",
+    "load-grunt-tasks": "^3.4.0"
   }
 }

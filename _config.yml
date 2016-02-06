@@ -10,8 +10,8 @@ socials:
   github: pomek
   twitch: pomekPL
 
-markdown: kramdown
 permalink: /:year/:month/:day/:title.html
+markdown: redcarpet
 
 gems: [jekyll-paginate]
 paginate: 5
@@ -24,9 +24,6 @@ exclude:
   - "bower.json"
   - "Gemfile"
   - "Gemfile.lock"
-
-jekyll-press:
-  exclude: '*.xml'
-  js_options: {}
-  css_options: {}
-  html_options: {}
+  - "js/.gitignore"
+  - "readme.md"
+  - "Gruntfile.js"

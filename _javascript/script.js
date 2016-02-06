@@ -1,9 +1,19 @@
 (function (global) {
     'use strict';
 
-    var news = document.querySelectorAll('.js-news');
+    var forEach = Array.prototype.forEach;
 
-    Array.prototype.forEach.call(news, function (item) {
+    var codeElements = document.querySelectorAll('[class^="language-"]'),
+        news = document.querySelectorAll('.js-news');
+
+    forEach.call(codeElements, function (item) {
+        // Remove highlight builded by Jekyll
+        item.innerText = item.innerText;
+        item.classList.add('line-numbers');
+        Prism.highlightElement(item);
+    });
+
+    forEach.call(news, function (item) {
         item.querySelector('.js-only').classList.remove('hidden');
 
         item.querySelector('.js-facebook')

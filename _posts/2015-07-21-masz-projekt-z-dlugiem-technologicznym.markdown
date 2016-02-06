@@ -16,8 +16,7 @@ Czym właściwie jest **dług technologiczny**? Każde *pójście na skróty* b�
 
 Chciałbym się podzielić historią, która ostatnio zdarzyła się w naszym projekcie. Jedna z podstawowych funkcjonalności w naszym projekcie to mechanizm wyszukiwania. Na początku mieliśmy aż 3 kryteria (filtry), za pomocą których można było ustawić parametry wyszukiwania. Pamiętając, że tworzymy wersję [**MVP**](https://en.wikipedia.org/wiki/Minimum_viable_product), nie martwiliśmy się problemem, który (*jeszcze*) nie istniał. Nasz początkowy kod wyglądał mniej więcej tak:
 
-{% highlight php linenos %}
-<?php
+```php
 namespace Search;
 
 class SearchQueryParams
@@ -69,7 +68,7 @@ class SearchRepository
         
     // ...
 }
-{% endhighlight %}
+```
 
 **Początkowo** powyższy kod nie był problemem. Wszystkie dostępne filtry były umieszczone w jednym miejscu i każdy z deweloperów wiedział jak to działa.
 
@@ -95,8 +94,7 @@ Nasz refaktoring rozpoczęliśmy od krótkiego spotkania, na którym **zaplanowa
 
 Repozytorium `SearchRepository` zostało wyposażone w nowy interfejs, który pozwalał dodawanie w przyszłości warunków (kryteriów) do zapytania:
 
-{% highlight php linenos %}
-<?php
+```php
 namespace Search\Repository;
 
 use Search\Criteria\CriterionInterface;
@@ -118,12 +116,11 @@ interface RepositoryWithCriteriaInterface
      */
     public function applyCriteria();
 }
-{% endhighlight %}
+```
 
 Każde kryterium implementowało również interfejs, który umożliwiał dodanie filtrów do repozytorium:
 
-{% highlight php linenos %}
-<?php
+```php
 namespace Search\Criteria;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -138,12 +135,11 @@ interface CriterionInterface
      */
     public function apply(Builder $model);
 }
-{% endhighlight %}
+```
 
 Przykład konkretnego kryterium, którego zadaniem jest sprawdzić, czy wyniki wyszukiwania znajdują się we wskazanej lokalizacji:
 
-{% highlight php linenos %}
-<?php
+```php
 namespace Search\Criteria; 
 
 use Illuminate\Database\Eloquent\Builder;
@@ -175,7 +171,7 @@ class VenueIsInGivenLocation implements CriterionInterface
         return $model->where('venues.city', $this->location);
     }
 }
-{% endhighlight %}
+```
 
 Tworzenie filtrów było najprostszym krokiem w refaktoringu. Powstała dedykowana fabryka, której zadaniem było budowanie obiektów z kryteriami. Napisane testy jednostkowe gwarantowały, że ten etap w procesie działa prawidłowo - **zgodnie z naszymi oczekiwaniami**.
 
@@ -185,8 +181,7 @@ Kiedy **silnik zaczął działać tak**, jak się tego spodziewaliśmy, **ostatn
 
 Zmodyfikowany silnik zawsze tworzył kompletny zestaw filtrów. Przed zmodyfikowaniem zapytania, każdy z filtrów sprawdzał, czy posiada poprawne parametry. Jeśli nie, filtr był ignorowany.
 
-{% highlight php linenos %}
-<?php
+```php
 /**
  * Builds the search criterion based on Search Query Params.
  *
@@ -206,7 +201,7 @@ protected function buildSearchFilters(SearchQueryParams $params)
 
     // ...
 }
-{% endhighlight %}
+```
 
 Z refaktoringiem byliśmy w stanie pozbyć się długu technologicznego, który w przyszłości mógłby zastopować prace nad projektem. Ponadto wyróżniliśmy dodatkowe zalety:
 
@@ -214,7 +209,7 @@ Z refaktoringiem byliśmy w stanie pozbyć się długu technologicznego, który 
 * Powstała dedykowana fabryka do budowania obiektu `SearchQueryParams`,
 * Powstała dedykowana fabryka do budowania formularza wyszukiwarki,
 
-Skąd pomysł na tego typu refaktoring? Inspirowałem się artykułem [„Using Repository Pattern in Laravel 5”](https://bosnadev.com/2015/03/07/using-repository-pattern-in-laravel-5/) autorstwa [Mirza Pasic](https://twitter.com/b1rkh0ff).
+Skąd pomysł na tego typu refaktoring? Inspirowałem się artykułem [„Using Repository Pattern in Laravel&nbsp;5”](https://bosnadev.com/2015/03/07/using-repository-pattern-in-laravel-5/) autorstwa [Mirza Pasic](https://twitter.com/b1rkh0ff).
 
 #### Aktualizacja
 
@@ -222,8 +217,7 @@ Wiem, że w powyższym kodzie popełniłem błąd. Repozytorium powinno być tra
 
 W powyższym rozwiązaniu kryteria były budowane i dołączane do `SearchRepository`. Teraz kryteria są dołączane do kolekcji (`CriteriaCollection`). Bazując na tej kolekcji, mogę pobrać konkretne wyniki.
 
-{% highlight php linenos %}
-<?php
+```php
 /**
  * Builds the search criterion based on Search Query Params.
  *
@@ -248,12 +242,11 @@ protected function buildSearchFilters(SearchQueryParams $params)
     
     // ...
 }
-{% endhighlight %}
+```
 
 Natomiast metoda `SearchRepository::getItems()` wygląda następująco:
 
-{% highlight php linenos %}
-<?php
+```php
 /**
  * @param \Search\Criteria\CriteriaCollection collection
  * @return array
@@ -268,4 +261,4 @@ public function getItems(CriteriaCollection $collection)
                 
     // ...
 }
-{% endhighlight %}
+```
