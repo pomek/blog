@@ -6,27 +6,27 @@ layout: default
 <div class="news-list">
 
     {% for post in paginator.posts %}
-    <article class="news js-news">
+    <article class="news js-news hentry">
         <h3 class="news--title">
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <a href="{{ post.url | prepend: site.baseurl }}" class="entry-title">{{ post.title }}</a>
         </h3>
         <p class="news--meta">
             Kategoria: {{ post.categories | join: ' ' }},
             Data publikacji:
-            <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+            <time datetime="{{ post.date | date: "%Y-%m-%d" }}" class="published">
                 {{ post.date | polishDate }}
             </time>
         </p>
-        <div class="news--content">
+        <div class="news--content entry-content">
             {% if post.image %}
                 <img src="{{ post.image }}" class="news--image">
             {% endif %}
             {{ post.excerpt }}
             <p class="news--more">
-                <a href="{{ post.url | prepend: site.baseurl }}">Pełny wpis</a>
+                <a href="{{ post.url | prepend: site.baseurl }}" class="entry-unrelated">Pełny wpis</a>
             </p>
         </div>
-        <section class="news__socials hidden js-only">
+        <section class="news__socials hidden js-only entry-unrelated">
             <h4 class="news__socials--title">Podziel się</h4>
             {% assign news = post %}
             {% include partials/socials.html %}

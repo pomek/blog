@@ -2,18 +2,18 @@
 layout: default
 ---
 
-<article class="news js-news">
+<article class="news js-news hentry">
     <h2 class="news--title">
-        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+        <a href="{{ page.url | prepend: site.baseurl }}" class="entry-title">{{ page.title }}</a>
     </h2>
     <p class="news--meta">
         Kategoria: {{ page.categories | join: ' ' }},
         Data publikacji:
-        <time datetime="{{ page.date | date: "%Y-%m-%d" }}">
+        <time datetime="{{ page.date | date: "%Y-%m-%d" }}" class="published">
             {{ page.date | polishDate }}
         </time>
     </p>
-    <div class="news--content">
+    <div class="news--content entry-content">
         {% if page.image %}
         <img src="{{ page.image }}" class="news--image">
         {% endif %}
@@ -22,7 +22,7 @@ layout: default
         </div>
     </div>
 
-    <section class="news__socials hidden js-only">
+    <section class="news__socials hidden js-only entry-unrelated">
         <h3 class="news__socials--title">Podziel się</h3>
         {% assign news = page %}
         {% include partials/socials.html %}
