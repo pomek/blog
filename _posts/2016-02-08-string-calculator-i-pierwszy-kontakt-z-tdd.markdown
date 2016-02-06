@@ -32,42 +32,39 @@ Tematem ćwiczenia jest napisanie klasy `StringCalculator`, której zadaniem bę
 
 Celem zadania jest stworzenie metody, która dla pustego stringu zwróci `0`, dla jednej liczby - wartość tej liczby, a dla dwóch - ich sumę. Na początek utwórzmy klasę `StringCalculator`.
  
-{% highlight bash %}
+```bash
 $ bin/phpspec desc StringCalculator
-{% endhighlight %}
+```
 
 Następnie sprawdźmy, czy test przejdzie. Pierwsze uruchomienie polecenia powinno wygenerować za nas odpowiednia klasę, która będzie spełniać warunki utworzonego testu.
 
-{% highlight bash %}
+```bash
 $ bin/phpspec run
-{% endhighlight %}
+```
 
 Ze specyfikacji zadania wiemy, że metoda `int add(string numbers)` może przyjąć jako argument pusty string, jedną liczbę lub dwie liczby i zwrócić ich sumę. Dla pustego stringu metoda powinna zwrócić wynik `0`. Na podstawie fragmentu specyfikacji, możemy opisać zachowanie klasy. Dodajmy metodę do testu (klasa `StringCalculatorSpec`):
 
-{% highlight php linenos %}
-<?php
+```php
 // Test
 function it_returns_0_for_empty_string()
 {
     $this->add("")->shouldReturn(0);
 }
-{% endhighlight %}
+```
 
 Wynik tego testu będzie negatywny. Metoda `add` jeszcze nie istnieje. *Spec* utworzy ją za nas, ale o implementację musimy już sami zadbać:
  
-{% highlight php linenos %}
-<?php
+```php
 // Implementacja
 public function add($numbers)
 {
     return 0;
 }
-{% endhighlight %}
+```
 
 Metoda `StringCalculator::add` w tym momencie robi dokładnie to, czego wymaga specyfikacja. Dołóżmy kalkulatorowi nowe zachowanie - jeśli prześlemy jedną liczbę, metoda niech zwróci jej wartość.
 
-{% highlight php linenos %}
-<?php
+```php
 // Test
 function it_returns_1_for_1()
 {
@@ -83,12 +80,11 @@ public function add($numbers)
 
     return (int)$numbers;
 }
-{% endhighlight %}
+```
 
 Nasza klasa radzi już sobie z pustym stringiem i jedną liczbą. Nauczmy ją dodawać dwie liczby:
 
-{% highlight php linenos %}
-<?php
+```php
 // Test
 function it_returns_5_for_2_and_3()
 {
@@ -103,14 +99,13 @@ public function add($numbers)
     $numbers = explode(",", $numbers);
     return array_sum($numbers);
 }
-{% endhighlight %}
+```
 
 ##### Zadanie 2.
 
 Pierwszy punkt zadania za nami. Następną cechą jaką powinien wyróżniać się nasz kalkulator jest możliwość dodawania nieograniczonej liczby cyfr. Sprawdźmy to na kilku przypadkach:
 
-{% highlight php linenos %}
-<?php
+```php
 // Dokładaj po jednej metodzie do testu i sprawdź czy przechodzą
 // Jeśli wynik jest negatywny, spraw by stał się pozytywny
 function it_returns_10_for_1_and_2_and_3()
@@ -127,14 +122,13 @@ function it_returns_15_for_1_and_2_and_3_and_4_and_5()
 {
     $this->add("1,2,3,4,5")->shouldBe(15);
 }
-{% endhighlight %}
+```
 
 ##### Zadanie 3.
 
 Następną cechą kalkulatora powinna być możliwość dodawania liczb rozdzielonych znakiem nowej linii, a nie jak dotychczas tylko przecinkiem:
 
-{% highlight php linenos %}
-<?php
+```php
 // Test
 function it_returns_6_for_1_new_line_and_2_and_3()
 {
@@ -151,17 +145,16 @@ public function add($numbers)
     
     // ...
 }
-{% endhighlight %}
+```
 
 
 ##### Zadanie 4.
 
-Kolejną cechą kalkulatora jest możliwość zmiany znaku, który rozdziela dodawane liczby. Domyślnie jest to przecinek. Dane wejściowe definiujące nowy seperator wyglądają nastepująco: `//[delimiter]\n[numbers...]`. 
+Kolejną cechą kalkulatora jest możliwość zmiany znaku, który rozdziela dodawane liczby. Domyślnie jest to przecinek. Dane wejściowe definiujące nowy separator wyglądają nastepująco: `//[delimiter]\n[numbers...]`. 
 
 **Wszystkie poprzednie scenariusze również muszą przechodzić.**
 
-{% highlight php linenos %}
-<?php
+```php
 // Test
 function it_adds_numbers_with_different_delimeter()
 {
@@ -187,14 +180,13 @@ public function add($numbers)
 
     // ...
 }
-{% endhighlight %}
+```
 
 ##### Zadanie 5.
 
 Kalkulator nie potrafi dodawać liczb ujemnych. Musimy go przed tym zabezpieczyć. Jeśli wprowadzimy liczby ujemne, kalkulator powinien rzucić wyjątek wskazujący nieprawidłowe liczby.
 
-{% highlight php linenos %}
-<?php
+```php
 // Długa nazwa testu dokładnie opisuje pożądane zachowanie
 function it_throws_an_exception_when_given_string_contains_negative_numbers()
 {
@@ -224,7 +216,7 @@ public function add($numbers)
     
     // ...
 }
-{% endhighlight %}
+```
 
 W tym miejscu warto się zastanowić, czy możemy w jakiś sposób oddelegować część zadań do prywatnych metod. Nowo powstały kod w metodzie wydzieliłbym do prywatnej metody `validateInput(array $numbers)`, która zajęłaby się sprawdzaniem poprawności liczb. 
 
@@ -238,8 +230,7 @@ Jeśli powyższe cechy kalkulatora sprawiały Ci problem, potraktuj dodatkowe za
 
 Następnym zadaniem jest wbudowanie w kalkulator filtru, który będzie ignorował liczby większe od 1000.
 
-{% highlight php linenos %}
-<?php
+```php
 // Test
 function it_ignores_numbers_bigger_than_1000()
 {
@@ -257,15 +248,14 @@ public function add($numbers)
         return $number <= 1000;
     }));
 }
-{% endhighlight %}
+```
 
 
 ##### Zadanie 7.
 
-Zbliżamy się do końca. Kolejnym zadaniem jest możliwość zdefiniowania seperatora o dowolnej długości znaków. 
+Zbliżamy się do końca. Kolejnym zadaniem jest możliwość zdefiniowania separatora o dowolnej długości znaków. 
 
-{% highlight php linenos %}
-<?php
+```php
 // Test
 function it_adds_numbers_with_different_length_of_delimeter()
 {
@@ -287,14 +277,13 @@ public function add($numbers)
     
     // ...
 }
-{% endhighlight %}
+```
 
 ##### Zadanie 8.
 
-Przedostatnim zadaniem jest możliwość zdefiniowania kilku seperatorów w ramach pojedynczego zestawu wejściowego. Składnia wejścia jest następująca: `//[delim1][delim2]\n[numbers...]`.
+Przedostatnim zadaniem jest możliwość zdefiniowania kilku separatorów w ramach pojedynczego zestawu wejściowego. Składnia wejścia jest następująca: `//[delim1][delim2]\n[numbers...]`.
 
-{% highlight php linenos %}
-<?php
+```php
 // Test
 function it_adds_numbers_with_differents_delimeters()
 {
@@ -322,27 +311,26 @@ public function add($numbers)
     
     // ...
 }
-{% endhighlight %}
+```
 
 ##### Zadanie 9.
 
-Ostatnim zadaniem jest możliwość definiowania seperatorów dłuższych niż jeden znak. 
+Ostatnim zadaniem jest możliwość definiowania separatorów dłuższych niż jeden znak. 
 
-{% highlight php linenos %}
-<?php
+```php
 // Test
 function it_adds_numbers_with_differents_delimeters_and_unknown_length_of_delimeter()
 {
     $this->add("//[*][%%]\n1*2%%3")->shouldBe(6);
     $this->add("//[*][%%][###]\n1*2%%3###4")->shouldBe(10);
 }
-{% endhighlight %}
+```
 
 W tym momencie posiadamy działający zgodnie ze specyfikacją kalkulator. Czy jestem zadowolony z kodu, który napisałem? Nie. Przedostatnie zadanie moim zdaniem jest najtrudniejsze i rozwiązanie do niego powinno być bardziej przejrzyste. Posiadam gotowy zestaw testów dla każdego punktu ze specyfikacji, dlatego mogę bez obaw refaktoryzować kod. Jeśli coś przestanie działać, moje testy to wykryją.
 
 ---
 
-Gotowe rozwiązanie wraz z testami jest dostępne na Githubie - [https://github.com/pomek/tdd-string-calculator](https://github.com/pomek/tdd-string-calculator). Na wstępie zaznaczyłem, że miałem okazję rozwiązać to zadanie wcześniej. Udostępniłem w tym samym repozytorium poprzednie rozwiązanie. Pierwotnie [*poszedłem na skróty*]({% post_url 2015-07-21-masz-projekt-z-dlugiem-technologicznym %}) i nie naprawiłem błędów. Tym razem wyciągnałem wnioski i kod dokładnie odzwierciedla wymogi specyfikacji.
+Gotowe rozwiązanie wraz z testami jest dostępne na Githubie - [https://github.com/pomek/tdd-string-calculator](https://github.com/pomek/tdd-string-calculator). Na wstępie zaznaczyłem, że miałem okazję rozwiązać to zadanie wcześniej. Udostępniłem w tym samym repozytorium poprzednie rozwiązanie. Pierwotnie [*poszedłem na skróty*]({% post_url 2015-07-21-masz-projekt-z-dlugiem-technologicznym %}) i nie naprawiłem błędów. Tym razem wyciągnąłem wnioski i kod dokładnie odzwierciedla wymogi specyfikacji.
 
 #### Podsumowanie
 
