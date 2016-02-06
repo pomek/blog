@@ -7,19 +7,20 @@ layout: default
         <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
     </h2>
     <p class="news--meta">
-        Kategoria: {{ page.categories | join: ' ' }},
-        Data publikacji:
-        <time datetime="{{ page.date | date: "%Y-%m-%d" }}">
-            {{ page.date | polishDate }}
-        </time>
+        <span class="news--category">Kategoria: {{ page.categories | join: ' ' }}</span>
+        <span class="news--published">
+            Data publikacji:
+
+            <time datetime="{{ page.date | date: "%Y-%m-%d" }}">
+                {{ page.date | polishDate }}
+            </time>
+        </span>
     </p>
     <div class="news--content">
         {% if page.image %}
         <img src="{{ page.image }}" class="news--image">
         {% endif %}
-        <div>
-            {{ content }}
-        </div>
+        {{ content }}
     </div>
 
     <section class="news__socials hidden js-only">

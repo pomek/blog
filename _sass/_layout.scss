@@ -152,6 +152,13 @@
     text-transform: uppercase;
   }
 
+  &--category {
+    &:after {
+      content: ',';
+      display: inline;
+    }
+  }
+
   &--content {
     @include clearfix;
     @include blockCenter;

@@ -11,11 +11,14 @@ layout: default
             <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h3>
         <p class="news--meta">
-            Kategoria: {{ post.categories | join: ' ' }},
-            Data publikacji:
-            <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
-                {{ post.date | polishDate }}
-            </time>
+            <span class="news--category">Kategoria: {{ post.categories | join: ' ' }}</span>
+            <span class="news--published">
+                Data publikacji:
+
+                <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+                    {{ post.date | polishDate }}
+                </time>
+            </span>
         </p>
         <div class="news--content">
             {% if post.image %}
