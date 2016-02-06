@@ -2,9 +2,14 @@
 title: >-
     Dump Links #4
 layout: post
-categories: Dump Links
+categories: 
+    - Dump Links
 comments: true
-tags: html css svg pe
+tags:
+    - HTML
+    - CSS
+    - SVG
+    - Progressive Enhancement
 identifier: dump-links-4
 ---
 

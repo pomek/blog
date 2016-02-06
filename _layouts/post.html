@@ -7,7 +7,7 @@ layout: default
         <a href="{{ page.url | prepend: site.baseurl }}" class="entry-title">{{ page.title }}</a>
     </h2>
     <p class="news--meta">
-        <span class="news--category">Kategoria: {{ page.categories | join: ' ' }}</span>
+        <span class="news--category">Kategoria: {{ page.categories }}</span>
         <span class="news--published">
             Data publikacji:
             <time datetime="{{ page.date | date: "%Y-%m-%d" }}" class="published">

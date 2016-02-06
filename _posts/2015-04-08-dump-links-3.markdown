@@ -2,9 +2,12 @@
 title: >-
     Dump Links #3
 layout: post
-categories: Dump Links
+categories: 
+    - Dump Links
 comments: true
-tags: php javascript
+tags:
+    - PHP
+    - JavaScript
 identifier: dump-links-3
 ---
 

@@ -2,9 +2,12 @@
 title: >-
     Po co mi te testy jednostkowe?
 layout: post
-categories: Software Development
+categories: 
+    - Software Development
 comments: true
-tags: unit tests ci
+tags:
+    - unit tests
+    - CI
 identifier: po-co-mi-te-testy-jednostkowe
 ---
 

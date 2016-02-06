@@ -2,9 +2,16 @@
 title: >-
     Dump Links #1
 layout: post
-categories: Dump Links
+categories: 
+    - Dump Links
 comments: true
-tags: phpspec laracast css laravel pagespeed ddd
+tags:
+    - PHPSpec 
+    - Laracast 
+    - CSS 
+    - Laravel 
+    - pagespeed 
+    - DDD
 identifier: dump-links-1
 ---
 

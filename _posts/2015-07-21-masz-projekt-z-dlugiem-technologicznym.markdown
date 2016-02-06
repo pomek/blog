@@ -2,9 +2,15 @@
 title: >-
     Masz projekt z długiem technologicznym?
 layout: post
-categories: Software Development
+categories: 
+    - Software Development
 comments: true
-tags: technical debt refactoring automatic unit tests
+tags:
+    - technical debt
+    - refactoring
+    - automatic tests
+    - unit tests
+    - PHP
 identifier: masz-projekt-z-dlugiem-technologicznym
 ---
 

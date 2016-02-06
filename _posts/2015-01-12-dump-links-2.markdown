@@ -2,9 +2,15 @@
 title: >-
     Dump Links #2
 layout: post
-categories: Dump Links
+categories: 
+    - Dump Links
 comments: true
-tags: javascript php oop laravel markdown regexp
+tags:
+    - JavaScript
+    - PHP
+    - OOP
+    - Laravel
+    - markdown
 identifier: dump-links-2
 ---
 
