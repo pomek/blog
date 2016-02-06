@@ -79,6 +79,13 @@ module.exports = function (grunt) {
                     'js/script.js': 'js/script.js'
                 }
             }
+        },
+
+        watch: {
+            js: {
+                files: ['_javascript/**/*.js'],
+                tasks: ['concat']
+            }
         }
     });
 

@@ -9,7 +9,11 @@
     forEach.call(codeElements, function (item) {
         // Remove highlight builded by Jekyll
         item.innerText = item.innerText;
-        item.classList.add('line-numbers');
+
+        if (item.innerText.split(/\r\n|\r|\n/).length > 5) {
+            item.classList.add('line-numbers');
+        }
+
         Prism.highlightElement(item);
     });
 
