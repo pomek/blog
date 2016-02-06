@@ -4,5 +4,5 @@ prepare:
 	./node_modules/grunt-cli/bin/grunt prepare
 
 build:
-	JEKYLL_ENV=production jekyll build
+	JEKYLL_ENV=production jekyll build --incremental
 	./node_modules/grunt-cli/bin/grunt compress

@@ -26,4 +26,5 @@ exclude:
   - "Gemfile.lock"
   - "js/.gitignore"
   - "readme.md"
+  - "Makefile"
   - "Gruntfile.js"
