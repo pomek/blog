@@ -29,6 +29,44 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
+        sass: {
+            dist: {
+                files: {
+                    'css/main.css': '_assets/stylesheets/main.scss'
+                }
+            }
+        },
+
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                files: {
+                    'js/script.js': [
+                        '_assets/javascript/prism.js',
+                        '_assets/javascript/script.js'
+                    ]
+                }
+            }
+        },
+
+        copy: {
+            fonts: {
+                expand: true,
+                cwd: '_assets/fonts',
+                src: '*',
+                dest: 'fonts/'
+            },
+
+            images: {
+                expand: true,
+                cwd: '_assets/images',
+                src: '**',
+                dest: 'images/'
+            }
+        },
+
         cssmin: {
             options: {
                 shorthandCompacting: false,
@@ -59,36 +97,47 @@ module.exports = function (grunt) {
             }
         },
 
-        concat: {
-            options: {
-                separator: ';'
-            },
-            dist: {
-                files: {
-                    'js/script.js': [
-                        '_javascript/prism.js',
-                        '_javascript/script.js'
-                    ]
-                }
-            }
-        },
-
         uglify: {
             prod: {
                 files: {
-                    'js/script.js': 'js/script.js'
+                    '_site/js/script.js': '_site/js/script.js'
                 }
             }
         },
 
+        imagemin: {
+            dist: {
+                options: {
+                    optimizationLevel: 3
+                },
+                files: [{
+                    expand: true,
+                    cwd: '_assets/images',
+                    src: ['**/*.{png,jpg}'],
+                    dest: '_site/images/'
+                }]
+            }
+        },
+
+        clean: {
+            css: ["css/**"],
+            js: ["js/**"],
+            images: ["images/**"],
+            fonts: ["fonts/**"]
+        },
+
         watch: {
+            sass: {
+                files: ['_assets/stylesheets/**/*.scss'],
+                tasks: ['sass']
+            },
             js: {
-                files: ['_javascript/**/*.js'],
+                files: ['_assets/javascript/**/*.js'],
                 tasks: ['concat']
             }
         }
     });
 
-    grunt.registerTask('prepare', ['concat']);
-    grunt.registerTask('compress', ['cssmin', 'htmlmin', 'uglify']);
+    grunt.registerTask('prepare', ['sass', 'concat', 'copy:fonts', 'copy:images']);
+    grunt.registerTask('compress', ['cssmin', 'htmlmin', 'uglify', 'imagemin']);
 };
