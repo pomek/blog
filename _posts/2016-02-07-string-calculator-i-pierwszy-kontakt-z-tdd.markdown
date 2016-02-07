@@ -111,7 +111,7 @@ Pierwszy punkt zadania za nami. Następną cechą jaką powinien wyróżniać si
 ```php
 // Dokładaj po jednej metodzie do testu i sprawdź czy przechodzą
 // Jeśli wynik jest negatywny, spraw by stał się pozytywny
-function it_returns_10_for_1_and_2_and_3()
+function it_returns_6_for_1_and_2_and_3()
 {
     $this->add("1,2,3")->shouldBe(6);
 }
