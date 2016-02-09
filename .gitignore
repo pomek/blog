@@ -1,3 +1,7 @@
+fonts/
+css/
+images/
+js/
 _site
 .sass-cache
 .jekyll-metadata
