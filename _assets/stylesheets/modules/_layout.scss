@@ -49,9 +49,19 @@
   width: 71.2%;
 }
 
-#disqus_thread,
-.news {
+#disqus_thread {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.news,
+#disqus_thread {
   margin-bottom: 5.625em;
+}
+
+.news--content,
+#disqus_thread {
+  width: 75%;
 }
 
 .news {
@@ -162,7 +172,6 @@
   &--content {
     @include clearfix;
     @include blockCenter;
-    width: 75%;
     text-align: justify;
 
     h2,

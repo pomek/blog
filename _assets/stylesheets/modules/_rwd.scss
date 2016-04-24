@@ -23,6 +23,11 @@
     width: 98%;
   }
 
+  .news--content,
+  #disqus_thread {
+    width: 87.5%;
+  }
+
   .news {
     h2 {
       font-size: 2.05em;
@@ -63,10 +68,6 @@
         display: block;
         content: '';
       }
-    }
-
-    &--content {
-      width: 87.5%;
     }
   }
 
