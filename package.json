@@ -10,6 +10,11 @@
     "url": "https://github.com/pomek/blog/issues"
   },
   "homepage": "https://github.com/pomek/blog#readme",
+  "scripts": {
+    "grunt": "grunt",
+    "css": "npm run grunt sass",
+    "js": "npm run grunt concat"
+  },
   "dependencies": {
     "bower": "^1.7.2",
     "grunt": "^0.4.5",
