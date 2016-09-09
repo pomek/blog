@@ -1,7 +1,2 @@
-fonts/
-css/
-images/
-js/
-_site
-.sass-cache
-.jekyll-metadata
+# Ignore all the dots directories.
+.*/
