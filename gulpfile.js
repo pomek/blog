@@ -1,18 +1,43 @@
 'use strict';
 
-const path = require('path');
 const gulp = require('gulp');
-const transformToHtml = require('./src/plugins/transform-to-html');
-const {stream} = require('./src/utils');
+const createPaginationIndex = require('./src/tasks/create-pagination-index');
+const createPosts = require('./src/tasks/create-posts');
+const {workspace} = require('./src/utils');
+
+const config = {
+    // Path where parsed files will be saved.
+    TEMPORARY_DIR: '.tmp',
+
+    // Path to the posts.
+    POSTS_DIR: 'posts',
+
+    // Path to the templates.
+    TEMPLATE_DIR: 'template',
+
+    // Number of posts displayed on single page.
+    POSTS_PER_PAGE: 4,
+
+    // Plugins used to convert Markdown to HTML.
+    MARKDOWN_PLUGINS: [
+        require('./src/plugins/markdown/meta-data'),
+        require('./src/plugins/markdown/post-links')
+    ]
+};
 
 gulp.task('posts', () => {
-    const globPath = './posts/*.md';
+    return workspace.getPosts('./posts')
+        .then((posts) => {
+            return createPosts(config, posts);
+        });
+});
 
-    return gulp.src(globPath, {base: path.dirname(globPath).dir})
-        .pipe(transformToHtml([
-            require('./src/plugins/markdown/meta-data'),
-            require('./src/plugins/markdown/post-links')
-        ]))
-        .pipe(stream.renamePosts())
-        .pipe(gulp.dest('.tmp'));
+gulp.task('index', () => {
+    return workspace.getPosts('./posts')
+        .then((posts) => {
+            return workspace.orderPostsByDate(posts);
+        })
+        .then((posts) => {
+            return createPaginationIndex(config, posts);
+        });
 });

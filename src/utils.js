@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    stream: require('./utils/stream')
+    workspace: require('./utils/workspace'),
+    tools: require('./utils/tools')
 };

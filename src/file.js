@@ -1,0 +1,40 @@
+'use strict';
+
+const path = require('path');
+
+module.exports = class File {
+    constructor (options = {
+        contents: '',
+        basename: '',
+        dirname: ''
+    }) {
+        this._meta = new Map();
+        this.contents = options.contents;
+        this.dirname = options.dirname;
+        this.basename = options.basename;
+    }
+
+    /**
+     * @returns {String}
+     */
+    get path() {
+        return path.join(this.dirname, this.basename);
+    }
+
+    /**
+     * @param {String} key
+     * @param {*} value
+     * @returns {void}
+     */
+    setMetaTag (key, value) {
+        this._meta.set(key, value);
+    }
+
+    /**
+     * @param {String} key
+     * @returns {*}
+     */
+    getMetaTag (key) {
+        return this._meta.get(key);
+    }
+};

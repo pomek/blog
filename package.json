@@ -16,12 +16,11 @@
   },
   "dependencies": {
     "commonmark": "^0.26.0",
+    "fs-extra": "^0.30.0",
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
-    "gulp-rename": "^1.2.2",
     "js-yaml": "^3.6.1",
-    "through2": "latest",
-    "vinyl": "latest"
+    "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
     "chai": "^3.5.0",

@@ -1,0 +1,6 @@
+extends ./layout/base
+
+block body
+    div
+        h3 #{ post.getMetaTag('title') }
+        | !{ post.contents }
