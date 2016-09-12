@@ -9,6 +9,7 @@ tags:
     - end-to-end
     - protractor
 identifier: protractor-testowanie-end-to-end-wielojezycznych-stron
+created_at: 2016-04-25
 ~~~
 
 Testy **end-to-end** pozwalają zautomatyzować proces testowania aplikacji. Jeśli nasz projekt będzie dostępny tylko w jednym języku, to nie powinniśmy mieć większych problemów z napisaniem takich testów. Problem zaczyna się pojawiać, kiedy nasze testy powinny pokrywać kilka wersji językowych. Poszczególne fragmenty aplikacji mogą różnić się nie tylko tekstami, ale również opcjami w polach formularzu, czy formatowaniem liczb. 

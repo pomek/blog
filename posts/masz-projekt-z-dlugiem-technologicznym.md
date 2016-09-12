@@ -11,6 +11,7 @@ tags:
     - unit tests
     - PHP
 identifier: masz-projekt-z-dlugiem-technologicznym
+created_at: 2015-07-21
 ~~~
 
 Każdy projekt powstaje w różnych warunkach i od samego początku jest on obarczony pewnymi problemami. W idealnym świecie, mamy wpływ na nasz projekt. Niestety, idealne sytuacje nie istnieją, więc nie możemy wszystkiego kontrolować i od momentu rozpoczęcia prac jesteśmy narażeni na zaciągnięcie długu technologicznego.

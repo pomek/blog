@@ -9,6 +9,7 @@ tags:
     - unit tests
     - CI
 identifier: po-co-mi-te-testy-jednostkowe
+created_at: 2016-02-01
 ~~~
 
 Deweloperzy, którzy jeszcze nie doświadczyli kontaktu z testami jednostkowymi, nie wiedzą jak wiele tracą i jak bardzo

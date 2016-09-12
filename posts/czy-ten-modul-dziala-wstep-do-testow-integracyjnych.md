@@ -8,9 +8,10 @@ comments: true
 tags: 
     - integration tests
 identifier: czy-ten-modul-dziala-wstep-do-testow-integracyjnych
+created_at: 2016-02-15
 ~~~
 
-[Testy jednostkowe]({% post_url 2016-02-01-po-co-mi-te-testy-jednostkowe %}) *mówią*, że każda nasza pojedyncza klasa działa.
+[Testy jednostkowe](`@post po-co-mi-te-testy-jednostkowe.html`) *mówią*, że każda nasza pojedyncza klasa działa.
 Czy jednak jest to wystarczająca gwarancja, aby stwierdzić, że moduł po spięciu kilku klas będzie działać? **Nie**.
 Tę gwarancję ma zapewnić warstwa **testów integracyjnych**, która jest następną warstwą testowania automatycznego - zaraz po testach jednostkowych.
 

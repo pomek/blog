@@ -9,9 +9,10 @@ tags:
     - unit tests
     - TDD
 identifier: string-calculator-i-pierwszy-kontakt-z-tdd
+created_at: 2016-02-07
 ~~~
 
-Niedawno napisałem artykuł na temat [testów jednostkowych]({% post_url 2016-02-01-po-co-mi-te-testy-jednostkowe %}), którego treść mocno skupiła się na teorii. Nie pokazałem żadnych narzędzi ani sposobów jak takie testy pisać. W tym artykule rozwiążę krótkie ćwiczenie (*Code Kata*) zgodnie z metodyką **TDD**. Jako ciekawostkę dodam, swój pierwszy kontakt z **TDD** jak i testami, również doświadczyłem z tym zadaniem.
+Niedawno napisałem artykuł na temat [testów jednostkowych](`@post po-co-mi-te-testy-jednostkowe.html`), którego treść mocno skupiła się na teorii. Nie pokazałem żadnych narzędzi ani sposobów jak takie testy pisać. W tym artykule rozwiążę krótkie ćwiczenie (*Code Kata*) zgodnie z metodyką **TDD**. Jako ciekawostkę dodam, swój pierwszy kontakt z **TDD** jak i testami, również doświadczyłem z tym zadaniem.
 
 Słowem krótkiego wstępu, czym jest wyżej wspomniane *Code Kata*? **Kata** to słowo pochodzenia japońskiego, które ogólnie oznacza wykonywanie ćwiczeń. Natomiast **Code Kata** to ćwiczenia programistyczne, które mają na celu pomóc programiście ulepszyć swoje umiejętności.
 
@@ -333,7 +334,7 @@ W tym momencie posiadamy działający zgodnie ze specyfikacją kalkulator. Czy j
 
 ---
 
-Gotowe rozwiązanie wraz z testami jest dostępne na Githubie - [https://github.com/pomek/tdd-string-calculator](https://github.com/pomek/tdd-string-calculator). Na wstępie zaznaczyłem, że miałem okazję rozwiązać to zadanie wcześniej. Udostępniłem w tym samym repozytorium poprzednie rozwiązanie. Pierwotnie [*poszedłem na skróty*]({% post_url 2015-07-21-masz-projekt-z-dlugiem-technologicznym %}) i nie naprawiłem błędów. Tym razem wyciągnąłem wnioski i kod dokładnie odzwierciedla wymogi specyfikacji.
+Gotowe rozwiązanie wraz z testami jest dostępne na Githubie - [https://github.com/pomek/tdd-string-calculator](https://github.com/pomek/tdd-string-calculator). Na wstępie zaznaczyłem, że miałem okazję rozwiązać to zadanie wcześniej. Udostępniłem w tym samym repozytorium poprzednie rozwiązanie. Pierwotnie [*poszedłem na skróty*](`@post masz-projekt-z-dlugiem-technologicznym.html`) i nie naprawiłem błędów. Tym razem wyciągnąłem wnioski i kod dokładnie odzwierciedla wymogi specyfikacji.
 
 #### Podsumowanie
 

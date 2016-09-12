@@ -11,6 +11,7 @@ tags:
     - ideas
     - conclusions
 identifier: czy-feedback-ulepsza-tworzenie-aplikacji
+created_at: 2015-09-28
 ~~~
 
 Czym właściwie jest retrospekcja? Podążając za [definicją z Wikipedii](https://en.wikipedia.org/wiki/Retrospective) - generalnie oznacza to spojrzenie na wydarzenia, które miały już swoje miejsce. W tym momencie powinieneś zapytać siebie - dlaczego programiści muszą przypominać sobie sytuacje z przeszłości?
