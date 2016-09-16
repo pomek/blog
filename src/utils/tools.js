@@ -52,6 +52,25 @@ const utils = {
                 return resolve();
             });
         });
+    },
+
+    /**
+     * Compiles posts to HTML.
+     *
+     * @param {String[]} posts Paths to the posts.
+     * @param {Function} markdownConverter
+     * @param {String} outputPath
+     * @returns {File[]}
+     */
+    compilePosts (posts, markdownConverter, outputPath) {
+        return posts.slice()
+            .map((post) => {
+                return markdownConverter(new File({
+                    contents: fs.readFileSync(post, 'utf-8'),
+                    basename: path.basename(post).replace(/md$/, 'html'),
+                    dirname: outputPath
+                }));
+            });
     }
 };
 

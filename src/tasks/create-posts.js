@@ -1,32 +1,30 @@
 'use strict';
 
-const fs = require('fs-extra');
 const path = require('path');
 const pug = require('pug');
-const File = require('../file');
 const {tools} = require('../utils');
 
 /**
  * @param {Object} config
- * @param {String[]} posts
+ * @param {Function[]} config.MARKDOWN_PLUGINS Markdown plugins.
+ * @param {String} config.TEMPLATE_DIR Path to the templates.
+ * @param {String} config.TEMPORARY_DIR The output path.
+ * @param {String[]} posts Paths to the post files.
  * @returns {Promise}
  */
 module.exports = (config, posts) => {
-    const templatePath = path.join(config.TEMPLATE_DIR, 'single-post.pug');
-    const conventer = tools.getMarkdownConverter(config.MARKDOWN_PLUGINS);
     const promises = [];
 
-    posts.slice()
-        .map((post) => {
-            let postFile = new File({
-                contents: fs.readFileSync(post, 'utf-8'),
-                basename: path.basename(post).replace(/md$/, 'html'),
-                dirname: config.TEMPORARY_DIR
-            });
+    // Prepare Markdown converter.
+    const markdownConverter = tools.getMarkdownConverter(config.MARKDOWN_PLUGINS);
 
-            return conventer(postFile);
-        })
+    // Prepare path to the template.
+    const templatePath = path.join(config.TEMPLATE_DIR, 'single-post.pug');
+
+    // Compile the posts...
+    tools.compilePosts(posts.slice(), markdownConverter, config.TEMPORARY_DIR)
         .forEach((post) => {
+            // And wrap them in the template.
             post.contents = pug.renderFile(templatePath, {config, post});
 
             promises.push(tools.saveFile(post));

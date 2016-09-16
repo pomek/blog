@@ -1,16 +1,17 @@
 'use strict';
 
-const fs = require('fs-extra');
-const pug = require('pug');
 const path = require('path');
-const merge = require('merge-stream');
-const transformToHtml = require('../plugins/transform-to-html');
-const {workspace, stream, tools} = require('../utils');
+const pug = require('pug');
+const {tools} = require('../utils');
 const File = require('../file');
 
 /**
  * @param {Object} config
- * @param {String[]} posts
+ * @param {Function[]} config.MARKDOWN_PLUGINS Markdown plugins.
+ * @param {String} config.TEMPLATE_DIR Path to the templates.
+ * @param {String} config.TEMPORARY_DIR The output path.
+ * @param {Number} config.POSTS_PER_PAGE Number of the posts on single page.
+ * @param {String[]} posts Paths to the post files.
  * @returns {Promise}
  */
 module.exports = (config, posts) => {
@@ -18,14 +19,26 @@ module.exports = (config, posts) => {
         return Promise.reject('The posts collection is empty.');
     }
 
-    const templatePath = path.join(config.TEMPLATE_DIR, 'index.pug');
-    const allPages = Math.ceil(posts.length / config.POSTS_PER_PAGE);
     const promises = [];
 
+    // Prepare Markdown converter.
+    const markdownConverter = tools.getMarkdownConverter(config.MARKDOWN_PLUGINS);
+
+    // Prepare path to the template.
+    const templatePath = path.join(config.TEMPLATE_DIR, 'index.pug');
+
+    // Count the all available pages.
+    const allPages = Math.ceil(posts.length / config.POSTS_PER_PAGE);
+
     for (let i = 1; i <= allPages; ++i) {
-        const postsForPage = compilePosts(
-            posts.slice((i - 1) * config.POSTS_PER_PAGE, i * config.POSTS_PER_PAGE)
+        // Compile the posts.
+        const postsForPage = tools.compilePosts(
+            posts.slice((i - 1) * config.POSTS_PER_PAGE, i * config.POSTS_PER_PAGE),
+            markdownConverter,
+            config.TEMPORARY_DIR
         );
+
+        // Compile the template.
         const compiledFile = pug.renderFile(templatePath, {
             allPages,
             config,
@@ -33,42 +46,31 @@ module.exports = (config, posts) => {
             posts: postsForPage
         });
 
-        let dirname = config.TEMPORARY_DIR;
-
-        if (i > 1) {
-            dirname += path.sep + i.toString();
-        }
-
+        // Preapre the file.
         const indexFile = new File({
-            dirname,
+            dirname: path.join(config.TEMPORARY_DIR, getDirname(i)),
             basename: 'index.html',
             contents: compiledFile
         });
 
-        promises.push(tools.saveFile(indexFile));
+        // Save.
+        promises.push(
+            tools.saveFile(indexFile)
+        );
     }
 
     return Promise.all(promises);
-
-    /**
-     * Compiles posts to HTML.
-     *
-     * @param {String[]} posts Paths to the posts.
-     * @param {Number} currentPage Current page.
-     * @returns {File[]}
-     */
-    function compilePosts (posts) {
-        const conventer = tools.getMarkdownConverter(config.MARKDOWN_PLUGINS);
-
-        return posts.slice()
-            .map((post) => {
-                let postFile = new File({
-                    contents: fs.readFileSync(post, 'utf-8'),
-                    basename: path.basename(post).replace(/md$/, 'html'),
-                    dirname: config.TEMPORARY_DIR
-                });
-
-                return conventer(postFile);
-            });
-    }
 };
+
+/**
+ * @param {Number} page
+ * @returns {String}
+ */
+function getDirname (page) {
+    if (1 === page) {
+        return '';
+    }
+
+    return page.toString();
+}
+

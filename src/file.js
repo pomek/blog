@@ -3,6 +3,12 @@
 const path = require('path');
 
 module.exports = class File {
+    /**
+     * @param {Object} [options={}] options
+     * @param {String} [options.contents=''] options.contents
+     * @param {String} [options.basename=''] options.basename
+     * @param {String} [options.dirname=''] options.dirname
+     */
     constructor (options = {
         contents: '',
         basename: '',
@@ -17,7 +23,7 @@ module.exports = class File {
     /**
      * @returns {String}
      */
-    get path() {
+    get path () {
         return path.join(this.dirname, this.basename);
     }
 
