@@ -1,6 +1,10 @@
 'use strict';
 
+const path = require('path');
 const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync');
 const createPaginationIndex = require('./src/tasks/create-pagination-index');
 const createPosts = require('./src/tasks/create-posts');
 const {workspace} = require('./src/utils');
@@ -22,8 +26,20 @@ const config = {
     MARKDOWN_PLUGINS: [
         require('./src/plugins/meta-data'),
         require('./src/plugins/post-links')
-    ]
+    ],
+
+    // The assets configuration.
+    ASSETS: {
+        // Path to the stylesheets.
+        STYLES: 'assets/styles',
+
+        // Path to the scripts.
+        SCRIPTS: 'assets/scripts'
+    }
 };
+
+// An instance of Browser-sync.
+const server = browserSync.create();
 
 gulp.task('posts', () => {
     return workspace.getPosts('./posts')
@@ -41,3 +57,33 @@ gulp.task('index', () => {
             return createPaginationIndex(config, posts);
         });
 });
+
+gulp.task('server', ['build'], () => {
+    server.init({
+        server: config.TEMPORARY_DIR
+    });
+
+    // Watchers for Gulp.
+    gulp.watch(`${config.ASSETS.STYLES}/**/*.scss`, ['styles']);
+    gulp.watch(`${config.TEMPLATE_DIR}/index.pug`, ['index']);
+    gulp.watch(`${config.TEMPLATE_DIR}/post.pug`, ['posts']);
+    gulp.watch(`${config.TEMPLATE_DIR}/layout/*.pug`, ['index', 'posts']);
+    gulp.watch(`${config.TEMPLATE_DIR}/includes/*.pug`, ['index', 'posts']);
+
+    // Reload browsers after changes.
+    server.watch(`${config.TEMPORARY_DIR}/**/*.css`).on('change', server.reload);
+    server.watch(`${config.TEMPORARY_DIR}/**/*.js`).on('change', server.reload);
+    server.watch(`${config.TEMPORARY_DIR}/**/*.html`).on('change', server.reload);
+});
+
+gulp.task('styles', () => {
+    return gulp.src(`${config.ASSETS.STYLES}/style.scss`)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest(path.join(config.TEMPORARY_DIR, config.ASSETS.STYLES)));
+});
+
+gulp.task('build', ['posts', 'index', 'styles']);

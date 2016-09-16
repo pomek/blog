@@ -19,13 +19,13 @@ module.exports = (config, posts) => {
     const markdownConverter = tools.getMarkdownConverter(config.MARKDOWN_PLUGINS);
 
     // Prepare path to the template.
-    const templatePath = path.join(config.TEMPLATE_DIR, 'single-post.pug');
+    const templatePath = path.join(config.TEMPLATE_DIR, 'post.pug');
 
     // Compile the posts...
     tools.compilePosts(posts.slice(), markdownConverter, config.TEMPORARY_DIR)
         .forEach((post) => {
             // And wrap them in the template.
-            post.contents = pug.renderFile(templatePath, {config, post});
+            post.contents = pug.renderFile(templatePath, {config, post, pretty: true});
 
             promises.push(tools.saveFile(post));
         });

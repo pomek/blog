@@ -43,7 +43,8 @@ module.exports = (config, posts) => {
             allPages,
             config,
             currentPage: i,
-            posts: postsForPage
+            posts: postsForPage,
+            pretty: true
         });
 
         // Preapre the file.
