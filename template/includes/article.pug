@@ -1,0 +1,16 @@
+mixin article(post)
+    - var postUrl = utils.path(rootPath, post.basename)
+    - var createdAt = post.getMetaTag('created_at')
+
+    ul.post__meta
+        li.post__info
+            time(datetime=createdAt.toISOString()) !{utils.date(createdAt)}
+        li.post__info !{post.getMetaTag('category')}
+
+    h2.post__title
+        a.post__title-link(href=postUrl) !{post.getMetaTag('title')}
+
+    p.post__excerpt !{utils.excerpt(post)}
+
+    p.post__read-more
+        a.post__read-more-link(href=postUrl) Czytaj więcej

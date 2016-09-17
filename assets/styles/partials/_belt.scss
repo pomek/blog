@@ -1,0 +1,38 @@
+.belt {
+  &--dark {
+    background: #111;
+  }
+
+  &--dark &__link {
+    color: #8c8c8c;
+
+    &:hover {
+      color: #aaa;
+    }
+  }
+
+  &__header {
+    @extend .clearfix;
+    margin: 0 auto;
+    padding: 15px 0;
+
+    @media (max-width: 767px) {
+      width: 90%;
+    }
+  }
+
+  &__socials {
+    float: right;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__footer {
+    color: #8c8c8c;
+    padding: 0.75em 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
