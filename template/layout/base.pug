@@ -1,3 +1,4 @@
+include ../includes/socials
 - var rootPath = '../'.repeat(file.nestingLevel)
 - var bodyClass = null
 doctype html
@@ -12,23 +13,17 @@ html(lang="pl")
         div.belt.belt--dark
             header.belt__header
                 h1.brand
-                    a(href=utils.path(rootPath, 'index.html')) blog.pomek.pl
-            ul.belt__socials.socials
-                li.socials__item
-                    a.socials__icon.socials__icon--facebook(href='//facebook.com/pomekPL') Facebook
-                li.socials__item
-                    a.socials__icon.socials__icon--twitter(href='//twitter.com/pomekPL') Twitter
-                li.socials__item
-                    a.socials__icon.socials__icon--twitch(href='//twitch.tv/pomekpl/profile') Twitch
-                li.socials__item
-                    a.socials__icon.socials__icon--github(href='//github.com/pomek') GitHub
-                li.socials__item
-                    a.socials__icon.socials__icon--rss(href=rootPath + 'rss.xml') RSS
+                    a.brand__link(href=utils.path(rootPath, 'index.html')) blog.pomek.pl
+                +socials('belt__socials')
 
         main.content
             block body
 
+        +socials()
+
         div.belt.belt--dark
             footer.belt__footer
                 p
-                    | Oryginalny szablon #[a(href='//www.competethemes.com/tracks') Tracks Theme]
+                    | Oryginalny szablon #[a.belt__link(href='//www.competethemes.com/tracks') Tracks Theme]
+
+        block scripts

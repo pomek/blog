@@ -1,9 +1,10 @@
 @import '../../node_modules/normalize-scss/sass/normalize.scss';
 @import 'partials/utils';
+@import 'partials/icons';
 
 @include normalize();
 
-// Remove the  margins/paddings from headers.
+// Remove the margins/paddings from headers.
 #{headings(1,6)} {
   margin: 0;
   padding: 0;
@@ -40,11 +41,32 @@ a {
   &--dark {
     background: #111;
   }
+
+  &--dark &__link {
+    color: #8c8c8c;
+
+    &:hover {
+      color: #aaa;
+    }
+  }
 }
 
 .brand {
   &:before {
-    content: '//';
+    content: '// ';
+  }
+
+  &__link {
+    opacity: 0.4;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &,
+    &:hover {
+      color: #fff;
+    }
   }
 }
 
@@ -52,9 +74,23 @@ a {
   list-style: none;
   margin: 0;
   padding: 0;
+  color: #fff;
+
+  &__label {
+    @extend .visually-hidden;
+  }
 
   &__icon {
-    @extend .visually-hidden;
+    opacity: 0.4;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &,
+    &:hover {
+      color: #fff;
+    }
   }
 }
 
@@ -111,6 +147,27 @@ a {
 
   &__read-more-link {
     color: #4d4d4d;
+  }
+}
+
+.pagination {
+  text-transform: uppercase;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  &__item {
+    display: inline-block;
+    margin: 0 0.375em;
+  }
+
+  &__link {
+    color: #8c8c8c;
+
+    &:hover {
+      color: #aaa;
+    }
   }
 }
 

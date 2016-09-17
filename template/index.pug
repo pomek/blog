@@ -3,6 +3,9 @@ extends ./layout/base
 block variables
     - var bodyClass = 'page--index'
 
+block scripts
+    script(src=utils.path(rootPath, config.ASSETS.SCRIPTS, 'index.js'))
+
 block body
     for post in posts
         - var postUrl = utils.path(rootPath, post.basename)

@@ -1,0 +1,17 @@
+mixin socials(parentClass)
+    ul.socials(class=parentClass)
+        li.socials__item
+            a.socials__icon.socials__icon--facebook(href='//facebook.com/pomekPL', data-square='true')
+                span.socials__label Facebook
+        li.socials__item
+            a.socials__icon.socials__icon--twitter(href='//twitter.com/pomekPL', data-square='true')
+                span.socials__label Twitter
+        li.socials__item
+            a.socials__icon.socials__icon--twitch(href='//twitch.tv/pomekpl/profile', data-square='false')
+                span.socials__label Twitch
+        li.socials__item
+            a.socials__icon.socials__icon--git(href='//github.com/pomek', data-square='true')
+                span.socials__label GitHub
+        li.socials__item
+            a.socials__icon.socials__icon--rss(href=rootPath + 'rss.xml', data-square='true')
+                span.socials__label RSS
