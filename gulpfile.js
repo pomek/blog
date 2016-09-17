@@ -4,6 +4,9 @@ const path = require('path');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const copy = require('gulp-copy');
+const rollup = require('gulp-rollup');
+const babel = require('rollup-plugin-babel');
 const browserSync = require('browser-sync');
 const createPaginationIndex = require('./src/tasks/create-pagination-index');
 const createPosts = require('./src/tasks/create-posts');
@@ -34,7 +37,10 @@ const config = {
         STYLES: 'assets/styles',
 
         // Path to the scripts.
-        SCRIPTS: 'assets/scripts'
+        SCRIPTS: 'assets/scripts',
+
+        // Path to the fonts.
+        FONTS: 'assets/fonts'
     }
 };
 
@@ -58,6 +64,37 @@ gulp.task('index', () => {
         });
 });
 
+gulp.task('styles', () => {
+    return gulp.src(`${config.ASSETS.STYLES}/style.scss`)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest(path.join(config.TEMPORARY_DIR, config.ASSETS.STYLES)));
+});
+
+gulp.task('copy', () => {
+    return gulp.src(`${config.ASSETS.FONTS}/*`)
+        .pipe(copy(config.TEMPORARY_DIR));
+});
+
+gulp.task('scripts', () => {
+    return gulp.src(`${config.ASSETS.SCRIPTS}/**/*.js`)
+        .pipe(rollup({
+            format: 'umd',
+            entry: [
+                path.join(config.ASSETS.SCRIPTS, 'index.js')
+            ],
+            plugins: [
+                babel({
+                    exclude: 'node_modules/**'
+                })
+            ]
+        }))
+        .pipe(gulp.dest(path.join(config.TEMPORARY_DIR, config.ASSETS.SCRIPTS)));
+});
+
 gulp.task('server', ['build'], () => {
     server.init({
         server: config.TEMPORARY_DIR
@@ -65,6 +102,7 @@ gulp.task('server', ['build'], () => {
 
     // Watchers for Gulp.
     gulp.watch(`${config.ASSETS.STYLES}/**/*.scss`, ['styles']);
+    gulp.watch(`${config.ASSETS.SCRIPTS}/**/*.js`, ['scripts']);
     gulp.watch(`${config.TEMPLATE_DIR}/index.pug`, ['index']);
     gulp.watch(`${config.TEMPLATE_DIR}/post.pug`, ['posts']);
     gulp.watch(`${config.TEMPLATE_DIR}/layout/*.pug`, ['index', 'posts']);
@@ -76,14 +114,4 @@ gulp.task('server', ['build'], () => {
     server.watch(`${config.TEMPORARY_DIR}/**/*.html`).on('change', server.reload);
 });
 
-gulp.task('styles', () => {
-    return gulp.src(`${config.ASSETS.STYLES}/style.scss`)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest(path.join(config.TEMPORARY_DIR, config.ASSETS.STYLES)));
-});
-
-gulp.task('build', ['posts', 'index', 'styles']);
+gulp.task('build', ['posts', 'index', 'styles', 'copy', 'scripts']);

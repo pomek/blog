@@ -15,16 +15,20 @@
     "coverage": "istanbul cover _mocha tests/ -- --recursive"
   },
   "dependencies": {
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "cheerio": "latest",
     "commonmark": "^0.26.0",
     "fs-extra": "^0.30.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-copy": "0.0.2",
+    "gulp-rollup": "^2.4.0",
     "gulp-sass": "^2.3.2",
     "gulp-util": "^3.0.7",
     "js-yaml": "^3.6.1",
     "normalize-scss": "^5.0.3",
     "pug": "^2.0.0-beta6",
-    "cheerio": "latest"
+    "rollup-plugin-babel": "^2.6.1"
   },
   "devDependencies": {
     "browser-sync": "^2.16.0",
