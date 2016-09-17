@@ -22,7 +22,9 @@
     "gulp-sass": "^2.3.2",
     "gulp-util": "^3.0.7",
     "js-yaml": "^3.6.1",
-    "pug": "^2.0.0-beta6"
+    "normalize-scss": "^5.0.3",
+    "pug": "^2.0.0-beta6",
+    "cheerio": "latest"
   },
   "devDependencies": {
     "browser-sync": "^2.16.0",

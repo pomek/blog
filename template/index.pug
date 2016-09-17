@@ -1,4 +1,49 @@
 extends ./layout/base
 
+block variables
+    - var bodyClass = 'page--index'
+
 block body
-    div
+    for post in posts
+        - var postUrl = utils.path(rootPath, post.basename)
+        - var createdAt = post.getMetaTag('created_at')
+
+        article.post
+            ul.post__meta
+                li.post__info
+                    time(datetime=createdAt.toISOString()) !{utils.date(createdAt)}
+                li.post__info !{post.getMetaTag('category')}
+
+            h2.post__title
+                a.post__title-link(href=postUrl) !{post.getMetaTag('title')}
+
+            p.post__excerpt !{utils.excerpt(post)}
+
+            p.post__read-more
+                a.post__read-more-link(href=postUrl) Czytaj więcej
+
+    if allPages > 0
+        - var page = 1
+
+        ul.pagination
+            if allPages > 1 && currentPage !== 1
+                li.pagination__item
+                    if (currentPage - 1) === 1
+                        - var previousUrl = utils.path(rootPath, 'index.html')
+                    else
+                        - var previousUrl = utils.path(rootPath, (page - 1).toString(), 'index.html')
+                    a.pagination__link(href=previousUrl) Poprzednia
+
+            while page <= allPages
+                if page === 1
+                    - var pageUrl = utils.path(rootPath, 'index.html')
+                else
+                    - var pageUrl = utils.path(rootPath, page.toString(), 'index.html')
+
+                li.pagination__item(class=(currentPage === page) ? 'pagionation__item--active' : '')
+                    a.pagination__link(href=pageUrl) #{page.toString()}
+                - ++page
+
+            if allPages > 1 && currentPage !== allPages
+                li.pagination__item
+                    a.pagination__link(href=utils.path(rootPath, (currentPage + 1).toString(), 'index.html')) Następna

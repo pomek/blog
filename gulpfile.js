@@ -24,8 +24,8 @@ const config = {
 
     // Plugins used to convert Markdown to HTML.
     MARKDOWN_PLUGINS: [
-        require('./src/plugins/meta-data'),
-        require('./src/plugins/post-links')
+        require('./src/plugins/markdown/meta-data'),
+        require('./src/plugins/markdown/post-links')
     ],
 
     // The assets configuration.

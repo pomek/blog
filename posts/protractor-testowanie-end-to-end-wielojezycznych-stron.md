@@ -1,9 +1,6 @@
 ~~~
-title: >-
-    Protractor - testowanie end-to-end wielojęzycznych stron
-layout: post
-categories: 
-    - JavaScript
+title: Protractor - testowanie end-to-end wielojęzycznych stron
+category: JavaScript
 comments: true
 tags: 
     - end-to-end

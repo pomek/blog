@@ -1,8 +1,34 @@
+- var rootPath = '../'.repeat(file.nestingLevel)
+- var bodyClass = null
 doctype html
 html(lang="pl")
+    block variables
     head
         meta(charset='utf-8')
-        link(href='//fonts.googleapis.com/css?family=Raleway:400,700,700i&subset=latin-ext' rel='stylesheet')
-    body
-        h1 Pug - node template engine
-        block body
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=2')
+        link(href='//fonts.googleapis.com/css?family=Raleway:400,700,700i&subset=latin-ext', rel='stylesheet')
+        link(href=utils.path(rootPath, config.ASSETS.STYLES, 'style.css'), rel='stylesheet')
+    body(class=bodyClass)
+        div.belt.belt--dark
+            header.belt__header
+                h1.brand
+                    a(href=utils.path(rootPath, 'index.html')) blog.pomek.pl
+            ul.belt__socials.socials
+                li.socials__item
+                    a.socials__icon.socials__icon--facebook(href='//facebook.com/pomekPL') Facebook
+                li.socials__item
+                    a.socials__icon.socials__icon--twitter(href='//twitter.com/pomekPL') Twitter
+                li.socials__item
+                    a.socials__icon.socials__icon--twitch(href='//twitch.tv/pomekpl/profile') Twitch
+                li.socials__item
+                    a.socials__icon.socials__icon--github(href='//github.com/pomek') GitHub
+                li.socials__item
+                    a.socials__icon.socials__icon--rss(href=rootPath + 'rss.xml') RSS
+
+        main.content
+            block body
+
+        div.belt.belt--dark
+            footer.belt__footer
+                p
+                    | Oryginalny szablon #[a(href='//www.competethemes.com/tracks') Tracks Theme]

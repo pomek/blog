@@ -1,9 +1,6 @@
 ~~~
-title: >-
-    Po co mi te testy jednostkowe?
-layout: post
-categories: 
-    - Software Development
+title: Po co mi te testy jednostkowe?
+category: Software Development
 comments: true
 tags:
     - unit tests

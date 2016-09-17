@@ -1,8 +1,7 @@
 ~~~
 title: Masz projekt z długiem technologicznym?
 layout: post
-categories: 
-    - Software Development
+category: Software Development
 comments: true
 tags:
     - technical debt

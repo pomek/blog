@@ -1,9 +1,6 @@
 ~~~
-title: >-
-    String Calculator i pierwszy kontakt z TDD
-layout: post
-categories: 
-    - PHP
+title: String Calculator i pierwszy kontakt z TDD
+category: PHP
 comments: true
 tags: 
     - unit tests

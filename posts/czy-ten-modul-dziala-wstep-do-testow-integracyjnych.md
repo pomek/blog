@@ -1,9 +1,6 @@
 ~~~
-title: >-
-    Czy ten moduł działa? Wstęp do testów integracyjnych
-layout: post
-categories: 
-    - Software Development
+title: Czy ten moduł działa? Wstęp do testów integracyjnych
+category: Software Development
 comments: true
 tags: 
     - integration tests

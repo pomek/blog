@@ -4,6 +4,8 @@ const path = require('path');
 const pug = require('pug');
 const {tools} = require('../utils');
 const File = require('../file');
+const dateMapper = require('../plugins/pug/date-mapper');
+const postExcerpt = require('../plugins/pug/post-excerpt');
 
 /**
  * @param {Object} config
@@ -38,20 +40,25 @@ module.exports = (config, posts) => {
             config.TEMPORARY_DIR
         );
 
-        // Compile the template.
-        const compiledFile = pug.renderFile(templatePath, {
-            allPages,
-            config,
-            currentPage: i,
-            posts: postsForPage,
-            pretty: true
-        });
-
         // Preapre the file.
         const indexFile = new File({
             dirname: path.join(config.TEMPORARY_DIR, getDirname(i)),
             basename: 'index.html',
-            contents: compiledFile
+        });
+
+        // Compile the template.
+        indexFile.contents = pug.renderFile(templatePath, {
+            utils: {
+                path: path.join.bind(path),
+                date: dateMapper,
+                excerpt: postExcerpt
+            },
+            allPages,
+            config,
+            file: indexFile,
+            currentPage: i,
+            posts: postsForPage,
+            pretty: true
         });
 
         // Save.

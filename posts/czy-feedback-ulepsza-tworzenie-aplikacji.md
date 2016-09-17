@@ -1,9 +1,6 @@
 ~~~
-title: >-
-    Czy feedback ulepsza tworzenie aplikacji?
-layout: post
-categories: 
-    - Software Development
+title: Czy feedback ulepsza tworzenie aplikacji?
+category: Software Development
 comments: true
 tags:
     - developers
