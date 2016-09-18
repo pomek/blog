@@ -84,7 +84,8 @@ gulp.task('scripts', () => {
         .pipe(rollup({
             format: 'umd',
             entry: [
-                path.join(config.ASSETS.SCRIPTS, 'index.js')
+                path.join(config.ASSETS.SCRIPTS, 'index.js'),
+                path.join(config.ASSETS.SCRIPTS, 'post.js')
             ],
             plugins: [
                 babel({

@@ -20,7 +20,7 @@ block body
                 div.post__image(style='background-image:url("' + post.getMetaTag('image') + '")', aria-hidden='true')
 
             div.post__demo
-                +article(post)
+                +article(post, false)
 
     if allPages > 1
         - var page = 1

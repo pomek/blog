@@ -4,7 +4,13 @@ block variables
     - var bodyClass = 'page--post'
     - var pageTitle = file.getMetaTag('title') + ' - blog.pomek.pl'
 
+block scripts
+    script(src=utils.path(rootPath, config.ASSETS.SCRIPTS, 'post.js'))
+
 block body
-    div
-        h3 #{ file.getMetaTag('title') }
-        | !{ file.contents }
+    article.post(class=(!!imageUrl ? 'post--has-image' : ''))
+        if imageUrl
+            div.post__image(style='background-image:url("' + file.getMetaTag('image') + '")', aria-hidden='true')
+
+        div.post__demo
+            +article(file, true)

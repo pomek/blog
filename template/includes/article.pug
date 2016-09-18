@@ -1,4 +1,4 @@
-mixin article(post)
+mixin article(post, shouldShowFull)
     - var postUrl = utils.path(rootPath, post.basename)
     - var createdAt = post.getMetaTag('created_at')
 
@@ -10,7 +10,9 @@ mixin article(post)
     h2.post__title
         a.post__title-link(href=postUrl) !{post.getMetaTag('title')}
 
-    p.post__excerpt !{utils.excerpt(post)}
-
-    p.post__read-more
-        a.post__read-more-link(href=postUrl) Czytaj więcej
+    if false === shouldShowFull
+        p.post__excerpt !{utils.excerpt(post)}
+        p.post__read-more
+            a.post__read-more-link(href=postUrl) Czytaj więcej
+    else
+        div.post__content !{ post.contents }
