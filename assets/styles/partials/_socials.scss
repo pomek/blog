@@ -1,8 +1,15 @@
 .socials {
+  text-align: center;
   list-style: none;
-  margin: 0;
   padding: 0;
   color: #fff;
+  font-size: 1.313em;
+  line-height: 1.714;
+  margin: 0 0.375em;
+
+  &--footer {
+    margin: 0.75em 0 1.5em;
+  }
 
   &__label {
     @extend .visually-hidden;

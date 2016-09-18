@@ -3,6 +3,11 @@ extends ./layout/base
 block variables
     - var bodyClass = 'page--index'
 
+    if currentPage == 1
+        - var pageTitle = 'blog.pomek.pl'
+    else
+        - var pageTitle = 'Strona ' + currentPage.toString() + ' - blog.pomek.pl'
+
 block scripts
     script(src=utils.path(rootPath, config.ASSETS.SCRIPTS, 'index.js'))
 

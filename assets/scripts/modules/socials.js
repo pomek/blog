@@ -22,6 +22,7 @@ export default () => {
         const iconElement = document.createElement('span');
 
         iconElement.setAttribute('title', label.firstChild.wholeText);
+        iconElement.setAttribute('aria-hidden', true);
         iconElement.classList.add(iconClass);
 
         icon.appendChild(iconElement);
