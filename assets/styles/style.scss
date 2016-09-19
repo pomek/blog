@@ -47,6 +47,10 @@ a {
   }
 }
 
+p {
+  margin: 1.5em 0;
+}
+
 .visually-hidden {
   position: absolute;
   overflow: hidden;
@@ -67,4 +71,13 @@ a {
   &:after {
     clear: both;
   }
+}
+
+code:not(.hljs) {
+  background: #f8f8f8;
+}
+
+.hljs {
+  max-height: 18.75em;
+  -webkit-overflow-scrolling: touch;
 }

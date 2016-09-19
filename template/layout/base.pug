@@ -12,6 +12,7 @@ html(lang="pl")
         link(href='//fonts.googleapis.com/css?family=Raleway:400,700,700i&subset=latin-ext', rel='stylesheet')
         link(href=utils.path(rootPath, config.ASSETS.STYLES, 'style.css'), rel='stylesheet')
         title #{ pageTitle }
+        block head
     body(class=bodyClass)
         div.belt.belt--dark
             header.belt__header

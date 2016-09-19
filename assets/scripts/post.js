@@ -3,3 +3,4 @@
 import socials from './modules/socials';
 
 socials();
+hljs.initHighlightingOnLoad();
