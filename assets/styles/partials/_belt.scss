@@ -1,32 +1,9 @@
 .belt {
-  &--dark {
-    background: #111;
-  }
-
-  &--dark &__link {
-    color: #8c8c8c;
-
-    &:hover {
-      color: #aaa;
-    }
-  }
-
   &__header {
     @extend .clearfix;
     margin: 0 auto;
-    padding: 15px 0;
-
-    @media (max-width: 767px) {
-      width: 90%;
-    }
-  }
-
-  &__socials {
-    float: right;
-
-    @media (max-width: 767px) {
-      display: none;
-    }
+    padding: 2em 0;
+    width: 90%;
   }
 
   &__footer {
@@ -41,6 +18,18 @@
 
     @media (max-width: 767px) {
       width: 90%;
+    }
+  }
+
+  &--dark {
+    background: #111;
+  }
+
+  &--dark &__link {
+    color: #8c8c8c;
+
+    &:hover {
+      color: #aaa;
     }
   }
 }

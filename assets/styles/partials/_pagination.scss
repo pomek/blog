@@ -2,9 +2,8 @@
   text-transform: uppercase;
   list-style: none;
   margin: 0;
-  padding: 0;
   text-align: center;
-  font-size: 0.813em;
+  font-size: 0.9em;
   line-height: 1.85;
   font-weight: 700;
   padding: 1.5em;
@@ -16,7 +15,7 @@
   &__link {
     color: #8c8c8c;
     display: block;
-    padding: 0.375em;
+    padding: 3/8 * 1em 3/4 * 1em;
 
     &:hover {
       color: #aaa;

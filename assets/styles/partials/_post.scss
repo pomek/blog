@@ -15,6 +15,10 @@
     &:hover {
       background-size: 125%;
     }
+
+    &--link {
+      cursor: pointer;
+    }
   }
 
   &__demo {
@@ -35,7 +39,7 @@
       position: relative;
       background: #4d4d4d;
       width: 4.5em;
-      height: 0.21875em;
+      height: 7/32 * 1em;
       left: 0;
       right: 0;
       margin: 1em auto;
@@ -55,6 +59,10 @@
   &__content {
     text-align: left;
     padding-bottom: 3em;
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   &__info {
@@ -64,7 +72,7 @@
     font-size: 0.813em;
     line-height: 1.85;
     font-weight: 700;
-    //letter-spacing: 0.08em;
+    letter-spacing: 0.08em;
   }
 
   &__info + &__info {
@@ -84,5 +92,20 @@
     display: block;
     padding-top: 1.5em;
     padding-bottom: 1.5em;
+  }
+
+  &__excerpt {
+    @media (min-width: 426px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 426px) and (max-width: 654px) {
+      max-width: 95%;
+    }
+
+    @media (min-width: 655px) {
+      max-width: 90%;
+    }
   }
 }

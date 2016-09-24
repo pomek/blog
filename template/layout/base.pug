@@ -9,7 +9,7 @@ html(lang="pl")
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=2')
-        link(href='//fonts.googleapis.com/css?family=Raleway:400,700,700i&subset=latin-ext', rel='stylesheet')
+        link(href='//fonts.googleapis.com/css?family=Raleway:400,400i,700,700i&subset=latin-ext', rel='stylesheet')
         link(href=utils.path(rootPath, config.ASSETS.STYLES, 'style.css'), rel='stylesheet')
         title #{ pageTitle }
         block head
@@ -18,7 +18,7 @@ html(lang="pl")
             header.belt__header
                 h1.brand
                     a.brand__link(href=utils.path(rootPath, 'index.html')) blog.pomek.pl
-                +socials('belt__socials')
+                +socials('socials--belt')
 
         main.content
             block body

@@ -3,12 +3,27 @@
   list-style: none;
   padding: 0;
   color: #fff;
-  font-size: 1.313em;
+  font-size: 1.4em;
   line-height: 1.714;
   margin: 0 0.375em;
 
+  &--belt {
+    @media (max-width: 629px) {
+      display: none;
+    }
+    @media (min-width: 630px) {
+      float: right;
+      margin-top: -10px;
+      position: relative;
+      top: 6px;
+      right: -0.2em;
+      margin-right: 0;
+    }
+  }
+
   &--footer {
     margin: 0.75em 0 1.5em;
+    font-size: 3/2 * 1em;
   }
 
   &__label {
@@ -21,6 +36,7 @@
 
   &__icon {
     opacity: 0.4;
+    display: block;
 
     &:hover {
       opacity: 0.9;
