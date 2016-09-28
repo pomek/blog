@@ -1,8 +1,63 @@
 .page--index {
-  @media (max-width: 767px) {
+  .post {
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &--has-image {
+      @extend .clearfix;
+
+      @media (min-width: 800px) {
+        .post__image,
+        .post__demo {
+          width: 50%;
+        }
+      }
+    }
+
+    @media (min-width: 800px) {
+      &--even {
+        .post__image {
+          float: right;
+        }
+
+        .post__demo {
+          float: left;
+        }
+      }
+
+      &--odd {
+        .post__image {
+          float: left;
+        }
+
+        .post__demo {
+          float: right;
+        }
+      }
+    }
+  }
+
+  .content {
+    margin: 5% auto;
+    width: 90%;
+  }
+}
+
+.page--post {
+
+  @media (min-width: 600px) {
     .content {
       margin: 5% auto;
       width: 90%;
+    }
+  }
+
+  .socials {
+    &--footer {
+      margin-top: 1.5em;
     }
   }
 }

@@ -45,6 +45,15 @@ const config = {
     }
 };
 
+const argv = require('minimist')(process.argv.slice(2), {
+    boolean: [
+        'browser'
+    ],
+    default: {
+        browser: false
+    }
+});
+
 // An instance of Browser-sync.
 const server = browserSync.create();
 
@@ -99,7 +108,8 @@ gulp.task('scripts', () => {
 
 gulp.task('server', ['build'], () => {
     server.init({
-        server: config.TEMPORARY_DIR
+        server: config.TEMPORARY_DIR,
+        open: argv.browser ? 'local' : false
     });
 
     // Watchers for Gulp.

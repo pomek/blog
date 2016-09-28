@@ -7,11 +7,12 @@ tags:
     - protractor
 identifier: protractor-testowanie-end-to-end-wielojezycznych-stron
 created_at: 2016-04-25
+image: http://stocky.pro/wp-content/uploads/2016/09/cooking14092016preview2.jpg
 ~~~
 
 Testy **end-to-end** pozwalają zautomatyzować proces testowania aplikacji. Jeśli nasz projekt będzie dostępny tylko w jednym języku, to nie powinniśmy mieć większych problemów z napisaniem takich testów. Problem zaczyna się pojawiać, kiedy nasze testy powinny pokrywać kilka wersji językowych. Poszczególne fragmenty aplikacji mogą różnić się nie tylko tekstami, ale również opcjami w polach formularzu, czy formatowaniem liczb. 
 
-#### Definicja problemu
+# Definicja problemu
 
 Ten artykuł nie pokaże Ci w jaki sposób pisać testy *e2e*. Nie będzie również o tym czym jest [Protractor](http://angular.github.io/protractor/#/) i&nbsp;jak go użyć. Nie wykluczone, że w przyszłości powstanie wpis, który rozjaśni te wszystkie tajemnicze pojęcia, ale w tym momencie zakładam, że znasz te narzędzie oraz testy e2e nie są dla Ciebie odkryciem.
 
@@ -19,7 +20,7 @@ Więc, w czym problem? Piszemy testy, odpalamy w konsoli polecenie, *wirtualny u
 
 Możemy zatem napisać dwa razy taki sam test - dla strony wyświetlanej w języku polskim, jak&nbsp;i&nbsp;w&nbsp;języku angielskim. Utrzymanie takiego testu będzie problemem - [powtarzanie kodu nie jest zjawiskiem akceptowanym](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Jeśli w aplikacji coś się zmieni, testy również muszą zostać zmienione. Do zmiany mamy co najmniej dwa testy (zakłądając, że mamy aplikację dwujęzyczną). Pojedynczy przypadek nie będzie problemem. Co jednak w sytuacji, kiedy testów mamy więcej? 
 
-#### Jeden test obsługuje kilka przypadków
+# Jeden test obsługuje kilka przypadków
 
 Jeden test powinien obsługiwać jedną ściężkę. Czy możemy napisać mechanizm, który uruchomi raz napisane testy kilka razy, z uwzględnieniem aktualnego języka w aplikacji? Ostatnio miałem okazję odpowiedzieć sobie na to pytanie. Rozwiązaniem problemu będą dwie klasy.
 
@@ -142,14 +143,14 @@ Context.prototype.isEnglishUrl = function () {
 module.exports = Context;
 ```
 
-Te dwie klasy wyrywkowo wykorzystują [nowości wprowadzone w ES2015](http://es6-features.org). Wyrywkowo,
+Te dwie klasy częściowo wykorzystują [nowości wprowadzone w ES2015](http://es6-features.org). Cześciowo,
 ponieważ ten kod jest uruchamiany w przeglądarce (i nie jest *kompilowany* przez inne narzędzia), a te
 [jeszcze nie intepretują zapisu ES2015 poprawnie](https://kangax.github.io/compat-table/es6/).
 
 Jak wspomniałem w komentarzach klas - ich użycie pozwala napisać jeden test, który zostanie uruchomiony 
 na każdej stronie, które zostaną zdefiniowane.
 
-##### Jak to wygląda w praktyce?
+# Jak to wygląda w praktyce?
 
 Przyjrzyjmy się przykładowi poniżej:
 
@@ -203,7 +204,7 @@ describe('EN', () => {
 });
 ```
 
-#### Podsumowując
+# Podsumowując
 
 Dzięki klasom `TestParser` oraz `Context` udało się rozwiązać problem testowania stron wielojęzycznych. Test mógł się lekko skomplikować, ale jeśli przyjdzie nam coś w w nich zmieniać, to zmienimy to tylko w jednym miejscu.
 

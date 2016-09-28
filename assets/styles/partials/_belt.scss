@@ -15,10 +15,7 @@
     margin-right: auto;
     text-align: center;
     text-transform: uppercase;
-
-    @media (max-width: 767px) {
-      width: 90%;
-    }
+    width: 90%;
   }
 
   &--dark {

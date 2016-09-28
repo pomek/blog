@@ -7,6 +7,7 @@ tags:
     - TDD
 identifier: string-calculator-i-pierwszy-kontakt-z-tdd
 created_at: 2016-02-07
+image: http://stocky.pro/wp-content/uploads/2016/09/painting14092016preview2.jpg
 ~~~
 
 Niedawno napisałem artykuł na temat [testów jednostkowych](`@post po-co-mi-te-testy-jednostkowe.html`), którego treść mocno skupiła się na teorii. Nie pokazałem żadnych narzędzi ani sposobów jak takie testy pisać. W tym artykule rozwiążę krótkie ćwiczenie (*Code Kata*) zgodnie z metodyką **TDD**. Jako ciekawostkę dodam, swój pierwszy kontakt z **TDD** jak i testami, również doświadczyłem z tym zadaniem.
@@ -25,11 +26,11 @@ potrzebujemy kilku narzędzi oraz reguł, które musimy przestrzegać:
 * rozwiązuj tylko **jeden punkt zadania w tym samym czasie**; celem jest nauka pracy inkrementalnej, stopniowej,
 * pamiętaj żeby testować tylko **prawidłowe dane wejściowe**; to są ćwiczenia i nieprawidłowy *input* nas nie interesuje.
 
-#### String Calculator
+# String Calculator
 
 Tematem ćwiczenia jest napisanie klasy `StringCalculator`, której zadaniem będzie dodawanie liczb zapisanych w postaci stringu. Początkowo dane wejściowe będą bardzo proste. Wraz z kolejnymi etapami, poziom skomplikowania danych wejściowych będzie rósł.
 
-##### Zadanie 1.
+## Zadanie 1.
 
 Celem zadania jest stworzenie metody, która dla pustego stringu zwróci `0`, dla jednej liczby - wartość tej liczby, a dla dwóch - ich sumę. Na początek utwórzmy klasę `StringCalculator`.
  
@@ -102,7 +103,7 @@ public function add($numbers)
 }
 ```
 
-##### Zadanie 2.
+## Zadanie 2.
 
 Pierwszy punkt zadania za nami. Następną cechą jaką powinien wyróżniać się nasz kalkulator jest możliwość dodawania nieograniczonej liczby cyfr. Sprawdźmy to na kilku przypadkach:
 
@@ -125,7 +126,7 @@ function it_returns_15_for_1_and_2_and_3_and_4_and_5()
 }
 ```
 
-##### Zadanie 3.
+## Zadanie 3.
 
 Następną cechą kalkulatora powinna być możliwość dodawania liczb rozdzielonych znakiem nowej linii, a nie jak dotychczas tylko przecinkiem:
 
@@ -149,7 +150,7 @@ public function add($numbers)
 ```
 
 
-##### Zadanie 4.
+## Zadanie 4.
 
 Kolejną cechą kalkulatora jest możliwość zmiany znaku, który rozdziela dodawane liczby. Domyślnie jest to przecinek. Dane wejściowe definiujące nowy separator wyglądają nastepująco: `//[delimiter]\n[numbers...]`. 
 
@@ -183,7 +184,7 @@ public function add($numbers)
 }
 ```
 
-##### Zadanie 5.
+## Zadanie 5.
 
 Kalkulator nie potrafi dodawać liczb ujemnych. Musimy go przed tym zabezpieczyć. Jeśli wprowadzimy liczby ujemne, kalkulator powinien rzucić wyjątek wskazujący nieprawidłowe liczby.
 
@@ -223,11 +224,11 @@ W tym miejscu warto się zastanowić, czy możemy w jakiś sposób oddelegować 
 
 **Po każdym refaktoringu należy się upewnić, czy testy wciąż przechodzą!**
 
-###### Zatrzymaj się, jeśli jesteś początkującym 
+### Zatrzymaj się, jeśli jesteś początkującym 
 
 Jeśli powyższe cechy kalkulatora sprawiały Ci problem, potraktuj dodatkowe zadania jako ciekawostkę.
 
-##### Zadanie 6.
+## Zadanie 6.
 
 Następnym zadaniem jest wbudowanie w kalkulator filtru, który będzie ignorował liczby większe od 1000.
 
@@ -252,7 +253,7 @@ public function add($numbers)
 ```
 
 
-##### Zadanie 7.
+## Zadanie 7.
 
 Zbliżamy się do końca. Kolejnym zadaniem jest możliwość zdefiniowania separatora o dowolnej długości znaków. 
 
@@ -280,7 +281,7 @@ public function add($numbers)
 }
 ```
 
-##### Zadanie 8.
+## Zadanie 8.
 
 Przedostatnim zadaniem jest możliwość zdefiniowania kilku separatorów w ramach pojedynczego zestawu wejściowego. Składnia wejścia jest następująca: `//[delim1][delim2]\n[numbers...]`.
 
@@ -314,7 +315,7 @@ public function add($numbers)
 }
 ```
 
-##### Zadanie 9.
+## Zadanie 9.
 
 Ostatnim zadaniem jest możliwość definiowania separatorów dłuższych niż jeden znak. 
 
@@ -333,11 +334,11 @@ W tym momencie posiadamy działający zgodnie ze specyfikacją kalkulator. Czy j
 
 Gotowe rozwiązanie wraz z testami jest dostępne na Githubie - [https://github.com/pomek/tdd-string-calculator](https://github.com/pomek/tdd-string-calculator). Na wstępie zaznaczyłem, że miałem okazję rozwiązać to zadanie wcześniej. Udostępniłem w tym samym repozytorium poprzednie rozwiązanie. Pierwotnie [*poszedłem na skróty*](`@post masz-projekt-z-dlugiem-technologicznym.html`) i nie naprawiłem błędów. Tym razem wyciągnąłem wnioski i kod dokładnie odzwierciedla wymogi specyfikacji.
 
-#### Podsumowanie
+# Podsumowanie
 
 W ramach podsumowania przedstawię kilka wniosków, które mi się nasunęły:
 
-- pisz tyle kodu ile faktycznie potrzeba,
-- nie twórz idealnych rozwiązań za pierwszym razem; najpierw zdaj test, później poprawiaj/ulepszaj,
-- dbaj o jakość testów, od ich przejrzystości zależy *dokumentacja* klasy,
-- spłacaj dług technologiczny możliwie jak najszybciej; czym później, tym bardziej nie będzie Ci się tego chciało poprawiać.
+* pisz tyle kodu ile faktycznie potrzeba,
+* nie twórz idealnych rozwiązań za pierwszym razem; najpierw zdaj test, później poprawiaj/ulepszaj,
+* dbaj o jakość testów, od ich przejrzystości zależy *dokumentacja* klasy,
+* spłacaj dług technologiczny możliwie jak najszybciej; czym później, tym bardziej nie będzie Ci się tego chciało poprawiać.

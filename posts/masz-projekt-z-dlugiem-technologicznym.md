@@ -11,19 +11,24 @@ tags:
     - PHP
 identifier: masz-projekt-z-dlugiem-technologicznym
 created_at: 2015-07-21
+image: http://stocky.pro/wp-content/uploads/2016/09/macvector14092016preview.jpg
 ~~~
 
 Każdy projekt powstaje w różnych warunkach i od samego początku jest on obarczony pewnymi problemami. W idealnym świecie, mamy wpływ na nasz projekt. Niestety, idealne sytuacje nie istnieją, więc nie możemy wszystkiego kontrolować i od momentu rozpoczęcia prac jesteśmy narażeni na zaciągnięcie długu technologicznego.
 
 Najczęściej występującym problemem w każdym projekcie jest deadline. Pod presją czasu tworzymy zły kod, który nie jest kompatybilny z *dialogiem* [**SOLID**](https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design) bądź co gorsze, kod ten nie jest pokryty żadnymi testami jednostkowymi.
 
+# Dług technologiczny
+
 Czym właściwie jest **dług technologiczny**? Każde *pójście na skróty* bądź omijanie problemów za pomocą różnych *hacków* generuje dług technologiczny. Wielu programistów, z różnych powodów, celowo zaciąga dług z nadzieją, że w przyszłości go "spłaci". Niestety, na nadziei się kończy.
 
-Chciałbym się podzielić historią, która ostatnio zdarzyła się w naszym projekcie. Jedna z podstawowych funkcjonalności w naszym projekcie to mechanizm wyszukiwania. Na początku mieliśmy aż 3 kryteria (filtry), za pomocą których można było ustawić parametry wyszukiwania. Pamiętając, że tworzymy wersję [**MVP**](https://en.wikipedia.org/wiki/Minimum_viable_product), nie martwiliśmy się problemem, który (*jeszcze*) nie istniał. Nasz początkowy kod wyglądał mniej więcej tak:
+Chciałbym się podzielić historią, która ostatnio zdarzyła się w naszym projekcie. Jedna z podstawowych funkcjonalności w naszym projekcie to jest wyszukiwarka. Początkowo zawierała ona aż 3 kryteria (filtry), za pomocą których można było filtrować wyniki. Pamiętając, że tworzymy wersję [**MVP**](https://en.wikipedia.org/wiki/Minimum_viable_product), nie martwiliśmy się problemem, który (*jeszcze*) nie istniał. Nasz początkowy kod wyglądał mniej więcej tak:
 
 ```php
 namespace Search;
 
+// Obiekt zbierający wszystkie parametry, które wprowadził użytkownik
+// w jedno miejsce (Data Transfer Only - DTO).
 class SearchQueryParams
 {
     // ...
@@ -48,6 +53,7 @@ class SearchQueryParams
 
 namespace Search\Repository;    
 
+// Repozytorium, które filtrowało wyniki na podstawie otrzymanych parametrów.
 class SearchRepository
 {
     // ...
@@ -79,7 +85,7 @@ class SearchRepository
 
 Wraz z kolejnymi etapami projektu, mechanizm wyszukiwania zaczął się rozrastać. Oprócz poprzednich filtrów, dodaliśmy kolejne, które były bardziej skomplikowane niż te początkowe. W związku z rozwojem wyszukiwarki, metoda `getRoomsByCriteria` stała się bardzo obszerna. Część naszego kodu z repozytorium została przeniesiona do modelów - skorzystaliśmy z możliwości wydzielania tych samych zapytań do [Laravel-owych scope'ów](https://laravel.com/docs/5.1/eloquent#query-scopes). Wciąż mogliśmy filtrować wyniki wyszukiwania oraz wykorzystywać zaawansowane fragmenty zapytań w kilku miejscach (lubimy [zasadę **DRY**](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)).
 
-Nie zauważyliśmy jednak momentu, kiedy nasza wyszukiwarka miała już **10 filtrów** i **jej kod został rozmieszczony w różnych miejscach** w aplikacji:
+Nie zauważyliśmy jednak momentu, kiedy nasza wyszukiwarka zawierała **10 filtrów** i **jej kod został rozmieszczony w różnych miejscach** w aplikacji:
 
 * Kontroler **budował** obiekt z parametrami wyszukiwania `SearchQueryParams`,
 * Kontroler **obsługiwał** formularz z filtrami wyszukiwania,
@@ -89,7 +95,7 @@ Jak możemy zauważyć, **nasz kontroler robił wszystko**. Zdaliśmy sobie spra
 
 Nasza aplikacja posiadała zestaw automatycznych testów, które pomogły nam wykryć regresję w każdym z dostępnych filtrów. Z solidnym fundamentem w postaci tych testów, zdecydowaliśmy się na przepisanie silnika wyszukiwania.
 
-### Refaktoring? Jak?
+# Refaktoring? Jak?
 
 Przed rozpoczęciem refaktoringu, **klient został poinformowany** o aktualnej sytuacji. **Wytłumaczyliśmy** dlaczego zarządzanie tym modułem w przyszłości może być utrudnione oraz dlaczego warto poświęcić kilka dni na refaktoring teraz, niż w przyszłości tracić te dni na zrozumienie co właściwie w tym kodzie się dzieje. Ostatecznie, **dostaliśmy zielone światło na naprawę**.
 
@@ -216,7 +222,7 @@ Z refaktoringiem byliśmy w stanie pozbyć się długu technologicznego, który 
 
 Skąd pomysł na tego typu refaktoring? Inspirowałem się artykułem [„Using Repository Pattern in Laravel&nbsp;5”](https://bosnadev.com/2015/03/07/using-repository-pattern-in-laravel-5/) autorstwa [Mirza Pasic](https://twitter.com/b1rkh0ff).
 
-#### Aktualizacja
+## Aktualizacja
 
 Wiem, że w powyższym kodzie popełniłem błąd. Repozytorium powinno być traktowane jako kolekcja (nie powinno zawierać stanu). Tak więc, `SearchRepository` nie powinno zawierać właściwości `$criteria`. Metody `applyCriteria` oraz `pushCriterion` powinny zostać usunięte. W rezultacie, metoda `getItems` wymaga tylko jednego parametru - `CriteriaCollection` - kolekcji, która zawiera utworzone kryteria. 
 

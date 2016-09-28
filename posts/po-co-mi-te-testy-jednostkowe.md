@@ -7,6 +7,7 @@ tags:
     - CI
 identifier: po-co-mi-te-testy-jednostkowe
 created_at: 2016-02-01
+image: http://stocky.pro/wp-content/uploads/2016/09/cooking14092016preview2.jpg
 ~~~
 
 Deweloperzy, którzy jeszcze nie doświadczyli kontaktu z testami jednostkowymi, nie wiedzą jak wiele tracą i jak bardzo
@@ -16,14 +17,14 @@ który aplikacja powinna posiadać. Automatyczny proces testowania pozwala zauto
 aktualizowania produkcji, a to zmniejsza ryzyko wystąpienia błędu. Jednak zanim dojdziemy do automatycznych
 aktualizacji, najpierw musimy przejść przez pierwszy etap - **testy jednostkowe**.
 
-##### Czym właściwie są testy jednostkowe?
+# Czym właściwie są testy jednostkowe?
 
 Testy jednostkowe to nic innego jak kod, który wykonuje się w kontrolowanych warunkach. Celem tego kodu jest weryfikacja,
 czy dostarczone przez nas dane wejściowe (*input*), po przejściu przez kod, dają taki rezultat, jakiego oczekujemy (*output*).
 
 Czy to jedyna zaleta z posiadania testów jednostkowych? Nie.
 
-##### Architektura aplikacji
+# Architektura aplikacji
 
 Testy jednostkowe połączone z metodyką [**TDD**](https://en.wikipedia.org/wiki/Test-driven_development) 
 wymuszają na programiście chwilę refleksji. Przed rozpoczęciem *kodzenia*, programista ma okazję przemyśleć,
@@ -32,7 +33,7 @@ Ogólnie chwila refleksji pozwala odpowiedzieć na pytanie - *„czy wybrany spo
 
 Jeśli nie potrafimy napisać testu do kodu, to prawdopodobnie mamy problem z architekturą naszej aplikacji.
 
-#### Czy mój kod działa?
+# Czy mój kod działa?
 
 Programiści, którzy nie posiadają testów jednostkowych, na to pytanie odpowiedzi nie znają. Mogą zakładać, że skoro 
 parser nie zwraca błędów, to ich kod będzie działać. Czy jednak brak błędów parsowania jest wyznacznikiem działania kodu? Nie.
@@ -42,7 +43,7 @@ powinien zwrócić dokładnie ten sam rezultat co poprzednio.
 
 Dzięki testom, odpowiedź na pytanie *„Czy mój kod działa?”* jest prosta - jeśli testy przechodzą, to i kod działa.
 
-#### Regresja
+# Regresja
 
 Dzięki **dobrym** testom jesteśmy zabezpieczeni przed regresją. Ciężko jest mi opisać czym charakteryzuje się „dobry test”, ale możemy wyróżnić kilka punktów:
 
@@ -58,7 +59,7 @@ Dzięki **dobrym** testom jesteśmy zabezpieczeni przed regresją. Ciężko jest
 W kontekście **TDD** istnieje zasada [**FIRST**](https://github.com/ghsukumar/SFDC_Best_Practices/wiki/F.I.R.S.T-Principles-of-Unit-Testing),
 która pokrywa się z powyższymi punktami.
 
-#### Dokumentacja
+# Dokumentacja
 
 Testy jednostkowe mogą być traktowane jako **żyjąca dokumentacja** kodu, ponieważ testy:
  
@@ -68,7 +69,7 @@ Testy jednostkowe mogą być traktowane jako **żyjąca dokumentacja** kodu, pon
 
 Każda aktualizacja testów wymusza poprawienie kodu, a co za tym idziem *dokumentacja* również ulega zmianom.
  
-#### Złe praktyki  
+# Złe praktyki  
 
 Jak wspomniałem na początku artykułu, testy jednostkowe to nic innego jak kod. Źle napisany test może stwarzać więcej problemów
 niż jego brak. Podobnie jak w przypadku „dobrych testów”, możemy wyróżnić kilka cech „testów złych”:
@@ -81,7 +82,7 @@ niż jego brak. Podobnie jak w przypadku „dobrych testów”, możemy wyróżn
 - **testy tylko pozytywnej ścieżki** - test nie powinien skupiać się tylko na pozytywnej ścieżce; powinien również sprawdzić warunki brzegowe,
 - **logika w teście** - testy nie powinny być skomplikowane, czyli nie powinny mieć w sobie pętli i instrukcji warunkowych; nie chcemy pisać testów do testów, prawda?
 
-#### Podsumowanie
+# Podsumowanie
 
 Jeśli jeszcze nie doświadczyłeś przyjemności z pisania testów jednostkowych, mam nadzieję, że po przeczytaniu tego artykułu Twoje nastawienie się zmieni i testy zaczną być fundamentem w Twojej codziennej pracy.
  

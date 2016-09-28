@@ -2,27 +2,37 @@
   background: #fff;
   text-align: center;
   margin-bottom: 1.5em;
+  overflow: hidden;
 
   &__image {
-    height: 50vw;
     background-position: center;
-    background-size: 100%;
     background-repeat: no-repeat;
     backface-visibility: hidden;
-    transition: all 1.5s ease;
-    transform: translateZ(0);
+    transition: all .2s ease-in-out;
+    background-size: cover;
+
+    @media (max-height: 799px) {
+      height: 50vw;
+    }
+
+    @media (min-height: 800px) {
+      max-height: 430px;
+    }
 
     &:hover {
-      background-size: 125%;
+      transform: scale(1.05);
     }
+  }
 
-    &--link {
-      cursor: pointer;
-    }
+  &--link {
+    cursor: pointer;
   }
 
   &__demo {
     padding: 0 5.55%;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
   }
 
   &__title {
@@ -32,6 +42,11 @@
     letter-spacing: 0.04em;
     font-size: 1.313em;
     line-height: 1.143;
+
+    @media (min-width: 800px) {
+      font-size: 1.875em;
+      line-height: 1.6;
+    }
 
     &:after {
       content: '';
