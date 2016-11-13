@@ -11,7 +11,7 @@ mixin article(post, shouldShowFull)
         a.post__title-link(href=postUrl) !{post.getMetaTag('title')}
 
     if false === shouldShowFull
-        p.post__excerpt !{utils.excerpt(post)}
+        p.post__excerpt !{post.getMetaTag('excerpt')}
         p.post__read-more
             a.post__read-more-link(href=postUrl) Czytaj więcej
     else

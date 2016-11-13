@@ -1,0 +1,63 @@
+///
+/// Returns media query for given media. Accepted media:
+///  - 'mobile-small' - less than 425px,
+///  - 'mobile-big' - less than 768px and more than 425px,
+///  - 'mobile' - less than 768px,
+///  - 'tablet-small' - less than 1024px and more than 768px,
+///  - 'tablet-big' - less than 1280px and more than 1024px,
+///  - 'tablet' - less than 1280px and more than 768px.
+///  - 'computer' - more than 1280px.
+///
+/// If given unsupported media, by default will be return media query for computer.
+///
+/// @see: http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32#variables-in-queries-using-content
+/// @param {String|List} [$media=null] $media Type of media.
+///
+@mixin respond-to($media: null) {
+  @if type-of($media) != list {
+    $media: join((), $media);
+  }
+
+  @if contain($media, mobile-small) {
+    @media only screen and (max-width: 424px) {
+      @content;
+    }
+  }
+
+  @if contain($media, mobile-big) {
+    @media only screen and (min-width: 425px) and (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @if contain($media, mobile) {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @if contain($media, tablet-small) {
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  }
+
+  @if contain($media, tablet-big) {
+    @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+      @content;
+    }
+  }
+
+  @if contain($media, tablet) {
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+      @content;
+    }
+  }
+
+  @if not $media or contain($media, computer) {
+    @media only screen and (min-width: 1280px) {
+      @content;
+    }
+  }
+}
+

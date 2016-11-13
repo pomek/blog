@@ -1,0 +1,10 @@
+///
+/// Returns whether `$list` contains `$value`.
+//
+/// @param {List} $list List to check.
+/// @param {*} $value -Value to look for.
+/// @returns {Boolean}
+///
+@function contain($list, $value) {
+  @return not not index($list, $value);
+}

@@ -1,38 +1,68 @@
 .post {
   background: #fff;
   text-align: center;
-  margin-bottom: 1.5em;
-  overflow: hidden;
+  font-size: 15px;
 
-  &__image {
-    background-position: center;
-    background-repeat: no-repeat;
-    backface-visibility: hidden;
-    transition: all .2s ease-in-out;
-    background-size: cover;
-
-    @media (max-height: 799px) {
-      height: 50vw;
-    }
-
-    @media (min-height: 800px) {
-      max-height: 430px;
-    }
-
-    &:hover {
-      transform: scale(1.05);
-    }
+  &:last-child {
+    margin-bottom: 0;
   }
 
   &--link {
     cursor: pointer;
   }
 
+  &__content {
+    text-align: left;
+    padding-bottom: 3em;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
   &__demo {
-    padding: 0 5.55%;
-    position: relative;
-    z-index: 2;
     background-color: #fff;
+    max-width: 48em;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    @include respond-to(mobile tablet) {
+      padding: 0 5.55%;
+    }
+
+    @include respond-to(computer) {
+      padding: 0 7.5%;
+    }
+  }
+
+  &__excerpt {
+    margin-bottom: 0;
+
+    @include respond-to(mobile-big tablet computer) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include respond-to(mobile-big) {
+      max-width: 95%;
+    }
+  }
+
+  &__image {
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .2s ease-in-out;
+    background-size: cover;
+
+    @include respond-to(mobile-small) {
+      height: 50vw;
+    }
+
+    @include respond-to(mobile-big) {
+      height: 45vw;
+      max-height: 315px;
+    }
   }
 
   &__title {
@@ -43,9 +73,9 @@
     font-size: 1.313em;
     line-height: 1.143;
 
-    @media (min-width: 800px) {
-      font-size: 1.875em;
-      line-height: 1.6;
+    @include respond-to(tablet-small) {
+      //font-size: 1.875em;
+      //line-height: 1.6;
     }
 
     &:after {
@@ -53,8 +83,8 @@
       display: block;
       position: relative;
       background: #4d4d4d;
-      width: 4.5em;
-      height: 7/32 * 1em;
+      width: 5.85rem;
+      height: 0.1835 * 1rem;
       left: 0;
       right: 0;
       margin: 1em auto;
@@ -69,15 +99,6 @@
     margin: 0 0 0.3125em;
     list-style: none;
     padding: 1.84502em 0 0;
-  }
-
-  &__content {
-    text-align: left;
-    padding-bottom: 3em;
-
-    a {
-      text-decoration: underline;
-    }
   }
 
   &__info {
@@ -100,6 +121,7 @@
     text-transform: uppercase;
     font-weight: 700;
     font-size: 0.813em;
+    margin-bottom: 0;
   }
 
   &__read-more-link {
@@ -108,19 +130,86 @@
     padding-top: 1.5em;
     padding-bottom: 1.5em;
   }
+}
 
-  &__excerpt {
-    @media (min-width: 426px) {
-      margin-left: auto;
-      margin-right: auto;
+.page--post {
+  .post {
+    max-width: 48em;
+    margin-left: auto;
+    margin-right: auto;
+
+    &__image {
+      @include respond-to(tablet) {
+        height: 21em;
+      }
+      @include respond-to(computer) {
+        height: 28em;
+      }
     }
 
-    @media (min-width: 426px) and (max-width: 654px) {
-      max-width: 95%;
+    &__title {
+      @include respond-to(tablet computer) {
+        font-size: 1.75em;
+      }
     }
 
-    @media (min-width: 655px) {
-      max-width: 90%;
+    p {
+      text-align: justify;
+    }
+  }
+}
+
+.page--index {
+  .post {
+    opacity: 0.8;
+
+    &:not(:last-of-type) {
+      @include respond-to(mobile) {
+        margin-bottom: 1.5em;
+      }
+
+      @include respond-to(tablet computer) {
+        max-height: 400px;
+        margin-bottom: 5%;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &--has-image {
+      @extend .clearfix;
+
+      @include respond-to(tablet computer) {
+        .post__image,
+        .post__demo {
+          width: 50%;
+          height: 400px;
+        }
+      }
+    }
+
+    @include respond-to(tablet computer) {
+      &--even {
+        .post__image {
+          float: right;
+        }
+
+        .post__demo {
+          float: left;
+        }
+      }
+
+      &--odd {
+        .post__image {
+          float: left;
+        }
+
+        .post__demo {
+          float: right;
+        }
+      }
     }
   }
 }

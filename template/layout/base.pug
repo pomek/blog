@@ -14,7 +14,7 @@ html(lang="pl")
         title #{ pageTitle }
         block head
     body(class=bodyClass)
-        div.belt.belt--dark
+        div.belt.belt--dark.belt--box
             header.belt__header
                 h1.brand
                     a.brand__link(href=utils.path(rootPath, 'index.html')) blog.pomek.pl
@@ -25,9 +25,9 @@ html(lang="pl")
 
         +socials('socials--footer')
 
-        div.belt.belt--dark
+        div.belt.belt--dark.belt--box
             footer.belt__footer
-                p
-                    | Oryginalny szablon #[a.belt__link(href='//www.competethemes.com/tracks') Tracks Theme]
+                p #[a.belt__link(href='//github.com/pomek/blog/issues') Zgłoś błąd lub zaproponuj temat, o którym mógłbym napisać.]
+                p Oryginalny szablon #[a.belt__link(href='//www.competethemes.com/tracks') Tracks Theme].
 
         block scripts

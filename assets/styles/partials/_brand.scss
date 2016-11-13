@@ -1,7 +1,7 @@
 .brand {
   font-size: 1.625em;
 
-  @media (min-width: 630px) {
+  @include respond-to(tablet computer) {
     float: left;
   }
 

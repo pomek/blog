@@ -8,10 +8,11 @@
   margin: 0 0.375em;
 
   &--belt {
-    @media (max-width: 629px) {
+    @include respond-to(mobile) {
       display: none;
     }
-    @media (min-width: 630px) {
+
+    @include respond-to(tablet computer) {
       float: right;
       margin-top: -10px;
       position: relative;
@@ -22,16 +23,8 @@
   }
 
   &--footer {
-    margin: 0.75em 0 1.5em;
+    margin: 1.5em 0;
     font-size: 3/2 * 1em;
-  }
-
-  &__label {
-    @extend .visually-hidden;
-  }
-
-  &__item {
-    display: inline-block;
   }
 
   &__icon {
@@ -45,6 +38,23 @@
     &,
     &:hover {
       color: #fff;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+  }
+
+  &__label {
+    @extend .visually-hidden;
+  }
+}
+
+.page--post {
+  .socials {
+    &--footer {
+      margin-top: 2em;
+      margin-bottom: 2em;
     }
   }
 }

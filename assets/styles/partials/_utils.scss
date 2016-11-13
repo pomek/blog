@@ -1,8 +1,0 @@
-// @see: https://trulycode.com/bytes/sass-function-loop-headings-h1h2h3h4h5h6/
-@function headings($from:1, $to:6) {
-  @if $from == $to {
-    @return 'h#{$from}';
-  } @else {
-    @return 'h#{$from},' + headings($from+1, $to);
-  }
-}
