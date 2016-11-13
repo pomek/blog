@@ -18,7 +18,7 @@ module.exports = class File {
         this.contents = options.contents;
         this.dirname = options.dirname;
         this.basename = options.basename;
-        this.nestingLevel = this._findNestingLevel(this.dirname || '.');
+        this.nestingLevel = File._findNestingLevel(this.dirname || '.');
     }
 
     /**
@@ -50,11 +50,11 @@ module.exports = class File {
      * @param {String} path
      * @returns {Number}
      */
-    _findNestingLevel (path) {
+    static _findNestingLevel (path) {
         if (path === '.') {
             return 0;
         }
 
-        return path.split('/').length - 1;
+        return path.split('/').length;
     }
 };

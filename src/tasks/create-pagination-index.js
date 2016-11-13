@@ -2,10 +2,9 @@
 
 const path = require('path');
 const pug = require('pug');
-const {tools} = require('../utils');
+const tools = require('../utils/tools');
 const File = require('../file');
 const dateMapper = require('../plugins/pug/date-mapper');
-const postExcerpt = require('../plugins/pug/post-excerpt');
 
 /**
  * @param {Object} config
@@ -36,13 +35,12 @@ module.exports = (config, posts) => {
         // Compile the posts.
         const postsForPage = tools.compilePosts(
             posts.slice((i - 1) * config.POSTS_PER_PAGE, i * config.POSTS_PER_PAGE),
-            markdownConverter,
-            config.TEMPORARY_DIR
+            markdownConverter
         );
 
         // Preapre the file.
         const indexFile = new File({
-            dirname: path.join(config.TEMPORARY_DIR, getDirname(i)),
+            dirname: getDirname(i),
             basename: 'index.html',
         });
 
@@ -51,7 +49,6 @@ module.exports = (config, posts) => {
             utils: {
                 path: path.join.bind(path),
                 date: dateMapper,
-                excerpt: postExcerpt
             },
             allPages,
             config,
@@ -63,7 +60,7 @@ module.exports = (config, posts) => {
 
         // Save.
         promises.push(
-            tools.saveFile(indexFile)
+            tools.saveFile(indexFile, config.TEMPORARY_DIR)
         );
     }
 

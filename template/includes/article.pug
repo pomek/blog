@@ -1,5 +1,5 @@
 mixin article(post, shouldShowFull)
-    - var postUrl = utils.path(rootPath, post.basename)
+    - var postUrl = utils.path(rootPath, post.path)
     - var createdAt = post.getMetaTag('created_at')
 
     ul.post__meta

@@ -1,9 +1,10 @@
 'use strict';
 
-const fs = require('fs-extra');
 const path = require('path');
+const fs = require('fs-extra');
 const commonmark = require('commonmark');
 const File = require('../file');
+const dateMapper = require('../plugins/pug/date-mapper');
 
 const utils = {
     /**
@@ -22,7 +23,6 @@ const utils = {
                 file.contents = writer.render(
                     reader.parse(file.contents)
                 );
-
                 return file;
             }
         );
@@ -31,20 +31,17 @@ const utils = {
     /**
      * Saves file under specify path.
      *
-     * @param {String|File} filePath
-     * @param {String} fileContent
+     * @param {File} file
+     * @param {String} destinationDir
      * @returns {Promise}
      */
-    saveFile(filePath, fileContent = '') {
-        if (filePath instanceof File) {
-            fileContent = filePath.contents;
-            filePath = filePath.path;
-        }
+    saveFile(file, destinationDir = '') {
+        const filePath = path.join(destinationDir, file.path);
 
         return new Promise((resolve, reject) => {
             fs.mkdirsSync(path.dirname(filePath));
 
-            fs.writeFile(filePath, fileContent, (err) => {
+            fs.writeFile(filePath, file.contents, 'utf-8', (err) => {
                 if (err) {
                     return reject(err);
                 }
@@ -59,18 +56,53 @@ const utils = {
      *
      * @param {String[]} posts Paths to the posts.
      * @param {Function} markdownConverter
-     * @param {String} outputPath
      * @returns {File[]}
      */
-    compilePosts (posts, markdownConverter, outputPath) {
+    compilePosts (posts, markdownConverter) {
         return posts.slice()
             .map((post) => {
                 return markdownConverter(new File({
                     contents: fs.readFileSync(post, 'utf-8'),
-                    basename: path.basename(post).replace(/md$/, 'html'),
-                    dirname: outputPath
+                    basename: 'index.html',
+                    dirname: path.basename(post, '.md')
                 }));
             });
+    },
+
+    /**
+     * @returns {Object} options
+     * @returns {Boolean} options.browser=false
+     * @returns {Boolean} options.b=false
+     * @returns {Boolean} options.debug=false
+     * @returns {Boolean} options.d=false
+     */
+    parseArguments() {
+        return require('minimist')(process.argv.slice(2), {
+            boolean: [
+                'browser',
+                'debug'
+            ],
+            alias: {
+                B: 'browser',
+                D: 'debug'
+            },
+            default: {
+                browser: false,
+                debug: false
+            }
+        });
+    },
+
+    /**
+     * @returns {Object} utils
+     * @returns {Function} utils.path
+     * @returns {Function} utils.date
+     */
+    getPugUtils() {
+        return {
+            path: path.join.bind(path),
+            date: dateMapper
+        }
     }
 };
 

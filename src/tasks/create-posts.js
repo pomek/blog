@@ -2,9 +2,7 @@
 
 const path = require('path');
 const pug = require('pug');
-const dateMapper = require('../plugins/pug/date-mapper');
-const postExcerpt = require('../plugins/pug/post-excerpt');
-const {tools} = require('../utils');
+const tools = require('../utils/tools');
 
 /**
  * @param {Object} config
@@ -24,21 +22,17 @@ module.exports = (config, posts) => {
     const templatePath = path.join(config.TEMPLATE_DIR, 'post.pug');
 
     // Compile the posts...
-    tools.compilePosts(posts.slice(), markdownConverter, config.TEMPORARY_DIR)
+    tools.compilePosts(posts.slice(), markdownConverter)
         .forEach((post) => {
             // And wrap them in the template.
             post.contents = pug.renderFile(templatePath, {
                 config,
                 file: post,
                 pretty: true,
-                utils: {
-                    path: path.join.bind(path),
-                    date: dateMapper,
-                    excerpt: postExcerpt
-                }
+                utils: tools.getPugUtils()
             });
 
-            promises.push(tools.saveFile(post));
+            promises.push(tools.saveFile(post, config.TEMPORARY_DIR));
         });
 
     return Promise.all(promises);

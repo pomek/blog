@@ -2,15 +2,20 @@
 
 const path = require('path');
 const gulp = require('gulp');
+
+// Gulp plugins.
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const copy = require('gulp-copy');
 const rollup = require('gulp-rollup');
 const babel = require('rollup-plugin-babel');
 const browserSync = require('browser-sync');
+
+// Tasks & helpers.
 const createPaginationIndex = require('./src/tasks/create-pagination-index');
 const createPosts = require('./src/tasks/create-posts');
-const {workspace} = require('./src/utils');
+const workspace = require('./src/utils/workspace');
+const tools = require('./src/utils/tools.js');
 
 const config = {
     // Path where parsed files will be saved.
@@ -30,6 +35,7 @@ const config = {
         require('./src/plugins/markdown/meta-data'),
         require('./src/plugins/markdown/post-links'),
         require('./src/plugins/markdown/lower-headers'),
+        require('./src/plugins/markdown/post-excerpt'),
     ],
 
     // The assets configuration.
@@ -45,14 +51,8 @@ const config = {
     }
 };
 
-const argv = require('minimist')(process.argv.slice(2), {
-    boolean: [
-        'browser'
-    ],
-    default: {
-        browser: false
-    }
-});
+// Read arguments from CLI.
+const argv = tools.parseArguments();
 
 // An instance of Browser-sync.
 const server = browserSync.create();
